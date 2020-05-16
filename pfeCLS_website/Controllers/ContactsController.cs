@@ -50,21 +50,28 @@ namespace pfeCLS_website.Controllers
         {
 
 
-
-
-
-           
+            try
+            {
                 if (ModelState.IsValid)
                 {
                     db.Contacts.Add(Create);
                     db.SaveChanges();
 
                     return RedirectToAction("Create");
-
+                 
 
                 }
-            ViewBag.Message = "Message Envoyer";
-            ViewBag.Error = "Message non envoyer";
+             
+            }
+            catch(Exception ex)
+            {
+                ViewBag.Error = "Message non envoyer : " +ex.Message;
+            }
+
+
+           
+              
+            
 
 
             return View(Create);

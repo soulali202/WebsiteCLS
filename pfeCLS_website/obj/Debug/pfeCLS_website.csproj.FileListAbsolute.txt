@@ -77,4 +77,3 @@ C:\Users\pc\source\repos\pfeCLS_website\pfeCLS_website\bin\EntityFramework.dll
 C:\Users\pc\source\repos\pfeCLS_website\pfeCLS_website\bin\EntityFramework.xml
 C:\Users\pc\source\repos\pfeCLS_website\pfeCLS_website\bin\EntityFramework.SqlServer.dll
 C:\Users\pc\source\repos\pfeCLS_website\pfeCLS_website\bin\EntityFramework.SqlServer.xml
-C:\Users\pc\source\repos\pfeCLS_website\pfeCLS_website\obj\Debug\pfeCLS_website.csprojAssemblyReference.cache
