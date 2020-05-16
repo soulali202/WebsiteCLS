@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="webCLSModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Inscription">
+    <Key>
+      <PropertyRef Name="id_part" />
+    </Key>
+    <Property Name="id_part" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom_part" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Prenom_part" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Age_part" Type="int" />
+    <Property Name="Email_part" Type="varchar" MaxLength="100" />
+    <Property Name="Profil_part" Type="varchar" MaxLength="30" />
+    <Property Name="Adresse_part" Type="varchar" MaxLength="100" />
+    <Property Name="Tele_part" Type="varchar" MaxLength="20" />
+    <Property Name="Date_Inscr" Type="date" />
+    <Property Name="ID_branche" Type="int" />
+  </EntityType>
+  <EntityContainer Name="webCLSModel1StoreContainer">
+    <EntitySet Name="Inscription" EntityType="Self.Inscription" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,229 @@
+﻿
+@{
+    ViewBag.Title = "Galerie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+
+            <ol>
+                <li><a href="@Url.Action("Index","Home")">Accueil</a></li>
+                <li>Galerie</li>
+            </ol>
+            <h2>Galerie</h2>
+
+        </div>
+    </section><!-- End Breadcrumbs -->
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12 d-flex justify-content-center">
+                    <ul id="portfolio-flters">
+                        <li data-filter="*" class="filter-active">toute</li>
+                        <li data-filter=".filter-app">Langues</li>
+                        <li data-filter=".filter-card">Calcul Mental</li>
+                        <li data-filter=".filter-web">Cuisine</li>
+                        <li data-filter=".filter-ved">Videos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row portfolio-container">
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-wrap">
+                        <img src="~/Content/Images/ClS/New Project (6).png" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>Langues</h4>
+                            <p>Langues</p>
+                            <div class="portfolio-links">
+                                <a href="~/Content/Images/30235.jpg" data-gall="portfolioGallery" class="venobox" title="Langues"><i class="bx bx-plus"></i></a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <div class="portfolio-wrap">
+                        <img src="~/Content/Images/CLS/WhatsApp Image 2020-04-12 at 15.55.16.jpeg" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>Cuisine</h4>
+                            <p>Cuisine</p>
+                            <div class="portfolio-links">
+                                <a href="~/Content/Images/CLS/WhatsApp Image 2020-04-12 at 15.55.19 (1).jpeg" data-gall="portfolioGallery" class="venobox" title="cuisine"><i class="bx bx-plus"></i></a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-wrap">
+                        <img src="~/Content/Images/rue-d-anglais-clipart-3.png" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>Langues</h4>
+                            <p>Langues</p>
+                            <div class="portfolio-links">
+                                <a href="~/Content/Images/centre-allemand-marrakech-wlc.png" data-gall="portfolioGallery" class="venobox" title="langues"><i class="bx bx-plus"></i></a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                    <div class="portfolio-wrap">
+                        <img src="~/Content/Images/maxresdefault.jpg" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>Calcul Mental</h4>
+                            <p>Calcul Mental</p>
+                            <div class="portfolio-links">
+                                <a href="~/Content/Images/multiplication6.jpg" data-gall="portfolioGallery" class="venobox" title="Calcul"><i class="bx bx-plus"></i></a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <div class="portfolio-wrap">
+                        <img src="~/Content/Images/CLS/WhatsApp Image 2020-04-12 at 15.55.19.jpeg" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>Cuisine</h4>
+                            <p>Cuisine</p>
+                            <div class="portfolio-links">
+                                <a href="~/Content/Images/images.jpg" data-gall="portfolioGallery" class="venobox" title="cuisine"><i class="bx bx-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-wrap">
+                        <img src="~/Content/Images/CLS/WhatsApp Image 2020-04-12 at 15.54.36.jpeg " class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>Langues</h4>
+                            <p>Langues</p>
+                            <div class="portfolio-links">
+                                <a href="~/Content/Images/joyeux-anniversaire-international.jpg" data-gall="portfolioGallery" class="venobox" title="langues"><i class="bx bx-plus"></i></a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                    <div class="portfolio-wrap">
+                        <img src="~/Content/Images/CLS/New Project (3).png" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>Calcul Mental</h4>
+                            <p>Calcul Mental</p>
+                            <div class="portfolio-links">
+                                <a href="~/Content/Images/boulier-calculs.jpg" data-gall="portfolioGallery" class="venobox" title="Calcul"><i class="bx bx-plus"></i></a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                    <div class="portfolio-wrap">
+                        <img src="~/Content/Images/hero.png" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>Calcul Mental</h4>
+                            <p>Calcul Mental</p>
+                            <div class="portfolio-links">
+                                <a href="~/Content/Images/tables-multiplication.jpg" data-gall="portfolioGallery" class="venobox" title="Calcul"><i class="bx bx-plus"></i></a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <div class="portfolio-wrap">
+                        <img src="~/Content/Images/hqdefault.jpg" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>Cuisine</h4>
+                            <p>Cuisine</p>
+                            <div class="portfolio-links">
+                                <a href="~/Content/Images/b3w52bqa30xwz8mpqhz.jpg" data-gall="portfolioGallery" class="venobox" title="cuisine"><i class="bx bx-plus"></i></a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <div class="portfolio-wrap">
+                        <img src="~/Content/Images/CLS/WhatsApp Image 2020-04-12 at 15.55.24.jpeg" class="img-fluid" alt="">
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <div class="portfolio-wrap">
+                        <img src="~/Content/Images/CLS/WhatsApp Image 2020-04-12 at 15.55.21 (1).jpeg" class="img-fluid" alt="">
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <div class="portfolio-wrap">
+                        <img src="~/Content/Images/CLS/WhatsApp Image 2020-04-12 at 15.55.20.jpeg" class="img-fluid" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <div class="portfolio-wrap">
+                        <img src="~/Content/Images/CLS/Saltes.jpeg" class="img-fluid" alt="">
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <div class="portfolio-wrap">
+                        <img src="~/Content/Images/CLS/gateau.jpeg" class="img-fluid" alt="">
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <div class="portfolio-wrap">
+                        <img src="~/Content/Images/CLS/WhatsApp Image 2020-04-12 at 15.55.19 (1).jpeg" class="img-fluid" alt="">
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-ved">
+
+
+                    <video width="350" height="300" controls>
+                        <source src="~/Content/Images/CLS/WhatsApp Video 2020-04-12 at 15.54.01.mp4" type="video/mp4">
+                        <source src="~/Content/Images/CLS/WhatsApp Video 2020-04-12 at 15.54.01.ogg" type="video/ogg">
+                    </video>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item filter-ved">
+
+                    <video width="350" height="300" controls>
+                        <source src="~/Content/Images/CLS/WhatsApp Video 2020-04-12 at 15.53.59.mp4" type="video/mp4">
+                        <source src="~/Content/Images/CLS/WhatsApp Video 2020-04-12 at 15.53.59.ogg" type="video/ogg">
+                    </video>
+
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item filter-ved">
+
+                    <video width="350" height="240" style="margin-top: 16%;" controls>
+                        <source src="~/Content/Images/CLS/WhatsApp Video 2020-04-12 at 15.53.55.mp4" type="video/mp4">
+                        <source src="~/Content/Images/CLS/WhatsApp Video 2020-04-12 at 15.53.55.ogg" type="video/ogg">
+                    </video>
+
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End Portfolio Section -->
+</main><!-- End #main -->

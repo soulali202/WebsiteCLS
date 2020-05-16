@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="webCLSModel2StoreContainer" CdmEntityContainer="DbBranches">
+    <EntitySetMapping Name="Branches">
+      <EntityTypeMapping TypeName="webCLSModel2.Branche">
+        <MappingFragment StoreEntitySet="Branche">
+          <ScalarProperty Name="ID_branche" ColumnName="ID_branche" />
+          <ScalarProperty Name="Nom_branche" ColumnName="Nom_branche" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

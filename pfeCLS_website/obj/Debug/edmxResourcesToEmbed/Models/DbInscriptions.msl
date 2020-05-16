@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="webCLSModel1StoreContainer" CdmEntityContainer="DbInscriptions">
+    <EntitySetMapping Name="Branches">
+      <EntityTypeMapping TypeName="webCLSModel1.Branche">
+        <MappingFragment StoreEntitySet="Branche">
+          <ScalarProperty Name="ID_branche" ColumnName="ID_branche" />
+          <ScalarProperty Name="Nom_branche" ColumnName="Nom_branche" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inscriptions">
+      <EntityTypeMapping TypeName="webCLSModel1.Inscription">
+        <MappingFragment StoreEntitySet="Inscription">
+          <ScalarProperty Name="id_part" ColumnName="id_part" />
+          <ScalarProperty Name="Nom_part" ColumnName="Nom_part" />
+          <ScalarProperty Name="Prenom_part" ColumnName="Prenom_part" />
+          <ScalarProperty Name="Age_part" ColumnName="Age_part" />
+          <ScalarProperty Name="Email_part" ColumnName="Email_part" />
+          <ScalarProperty Name="Profil_part" ColumnName="Profil_part" />
+          <ScalarProperty Name="Adresse_part" ColumnName="Adresse_part" />
+          <ScalarProperty Name="Tele_part" ColumnName="Tele_part" />
+          <ScalarProperty Name="Date_Inscr" ColumnName="Date_Inscr" />
+          <ScalarProperty Name="ID_branche" ColumnName="ID_branche" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

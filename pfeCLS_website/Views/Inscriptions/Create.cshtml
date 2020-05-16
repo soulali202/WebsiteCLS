@@ -1,0 +1,174 @@
+﻿@model pfeCLS_website.Models.Inscription
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+
+            <ol>
+                <li><a href="@Url.Action("Index","Home")">Accueil</a></li>
+                <li>Inscription</li>
+            </ol>
+            <h2>Inscription</h2>
+
+        </div>
+    </section><!-- End Breadcrumbs -->
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="info-box mb-4">
+                        <i class="bx bx-map"></i>
+                        <h3>Address</h3>
+                        <p>N62 Houman Fetouaki Mhamid-Marrakech</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="info-box  mb-4">
+                        <i class="bx bx-envelope"></i>
+                        <h3>Email</h3>
+                        <p>centre.ichbilia@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="info-box  mb-4">
+                        <i class="bx bx-phone-call"></i>
+                        <h3>Call </h3>
+                        <p>08 08 54 22 32</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 ">
+                    <img src="~/Content/Images/CLS/WhatsApp Image 2020-04-12 at 15.54.32.jpeg ">
+                </div>
+
+
+                <div class="col-lg-6">
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            <h4>Inscription</h4>
+                            <hr />
+                            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @*@Html.LabelFor(model => model.Nom_part, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Nom_part, new { htmlAttributes = new { @class = "form-control", placeholder = "Nom" } })
+                                    @Html.ValidationMessageFor(model => model.Nom_part, "**", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @*@Html.LabelFor(model => model.Prenom_part, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Prenom_part, new { htmlAttributes = new { @class = "form-control", placeholder = "Prenom" } })
+                                    @Html.ValidationMessageFor(model => model.Prenom_part, "**", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @*@Html.LabelFor(model => model.Age_part, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Age_part, new { htmlAttributes = new { @class = "form-control", placeholder = "Age" } })
+                                    @Html.ValidationMessageFor(model => model.Age_part, "**", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @*@Html.LabelFor(model => model.Email_part, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Email_part, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
+                                    @Html.ValidationMessageFor(model => model.Email_part, "**", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @*@Html.LabelFor(model => model.Profil_part, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Profil_part, new { htmlAttributes = new { @class = "form-control", placeholder = "Profil" } })
+                                    @Html.ValidationMessageFor(model => model.Profil_part, "**", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @*@Html.LabelFor(model => model.Adresse_part, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Adresse_part, new { htmlAttributes = new { @class = "form-control", placeholder = "Adresse" } })
+                                    @Html.ValidationMessageFor(model => model.Adresse_part, "**", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @*@Html.LabelFor(model => model.Tele_part, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Tele_part, new { htmlAttributes = new { @class = "form-control", placeholder = "Telephone" } })
+                                    @Html.ValidationMessageFor(model => model.Tele_part, "**", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            @*<div class="form-group">
+                                    @Html.LabelFor(model => model.Date_Inscr, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Date_Inscr, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Date_Inscr, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>*@
+
+                            <div class="form-group">
+                                @*@Html.LabelFor(model => model.ID_branche, "ID_branche", htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                <div class="col-md-10">
+                                    @Html.DropDownList("ID_branche", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ID_branche, "**", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <div class="text-center">
+                                        <input type="submit" value="S'inscrire" class="btn btn-primary" />
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <div class="col-md-offset-2 col-md-10">
+                                    <div class="text-center">
+                                  
+
+                                        @if (Html.ValidationSummary() == null || ViewBag.Error==null)
+                                        {
+                                            <h5>@ViewBag.Message</h5>
+                                        }
+                                        else
+                                        {
+                                            <h5>@ViewBag.Error</h5> 
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Contact Section -->
+
+</main><!-- End #main -->

@@ -1,0 +1,82 @@
+﻿@model IEnumerable<pfeCLS_website.Models.Inscription>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom_part)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prenom_part)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age_part)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email_part)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Profil_part)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adresse_part)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tele_part)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date_Inscr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Branche.Nom_branche)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nom_part)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prenom_part)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Age_part)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email_part)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Profil_part)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adresse_part)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tele_part)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date_Inscr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Branche.Nom_branche)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_part }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_part }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_part })
+        </td>
+    </tr>
+}
+
+</table>

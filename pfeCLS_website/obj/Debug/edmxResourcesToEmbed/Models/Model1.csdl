@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="webCLSModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Inscription">
+    <Key>
+      <PropertyRef Name="id_part" />
+    </Key>
+    <Property Name="id_part" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom_part" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Prenom_part" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Age_part" Type="Int32" />
+    <Property Name="Email_part" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Profil_part" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Adresse_part" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Tele_part" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Date_Inscr" Type="DateTime" Precision="0" />
+    <Property Name="ID_branche" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="webCLSEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Inscriptions" EntityType="Self.Inscription" />
+  </EntityContainer>
+</Schema>

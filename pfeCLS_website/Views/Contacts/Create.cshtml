@@ -1,0 +1,130 @@
+﻿@model pfeCLS_website.Models.Contact
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+
+            <ol>
+                <li><a href="@Url.Action("Index","Home")">Accueil</a></li>
+                <li>Contact</li>
+            </ol>
+            <h2>Contact</h2>
+
+        </div>
+    </section><!-- End Breadcrumbs -->
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="info-box mb-4">
+                        <i class="bx bx-map"></i>
+                        <h3>Address</h3>
+                        <p>N62 Houman Fetouaki Mhamid-Marrakech</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="info-box  mb-4">
+                        <i class="bx bx-envelope"></i>
+                        <h3>Email</h3>
+                        <p>centre.ichbilia@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="info-box  mb-4">
+                        <i class="bx bx-phone-call"></i>
+                        <h3>Call </h3>
+                        <p>08 08 54 22 32</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-6 ">
+                    <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1699.1395895648855!2d-8.038936775586842!3d31.598809085540754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd9b301faac95dd3!2sCaf%C4%97%20Taiba!5e0!3m2!1sen!2sma!4v1586847362638!5m2!1sen!2sma" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
+
+                </div>
+
+                <div class="col-lg-6">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            <h4>Contactez nous</h4>
+                            <hr />
+                            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Nom_msg, new { htmlAttributes = new { @class = "form-control", placeholder = "Nom"} })
+                                    @Html.ValidationMessageFor(model => model.Nom_msg, "**", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Email_msg, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
+                                    @Html.ValidationMessageFor(model => model.Email_msg, "**", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Objet_msg, new { htmlAttributes = new { @class = "form-control", placeholder = "Objet" } })
+                                    @Html.ValidationMessageFor(model => model.Objet_msg, "**", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Message_msg, new { htmlAttributes = new { @class = "form-control", placeholder = "Message"} })
+                                    @Html.ValidationMessageFor(model => model.Message_msg, "**", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <div class="text-center">
+                                        <input class="btn btn-primary" type="submit" value="Envoyer"  />
+                                    </div>
+                                    <div>
+                                        <br /><br />
+                                        @if (Html.ValidationSummary() == null || ViewBag.Error == null)
+                                        {
+                                            <h5>@ViewBag.Message</h5>
+                                        }
+                                        else
+                                        {
+                                            <h5>@ViewBag.Error</h5>
+                                        }
+                                    </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                   
+                </div>
+
+            </div>
+
+        </div>
+
+    </section><!-- End Contact Section -->
+</main><!-- End #main -->

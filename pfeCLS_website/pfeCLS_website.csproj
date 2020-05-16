@@ -1,0 +1,479 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{65E1FC0C-2A90-4568-99CD-CF616FA9ED93}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>pfeCLS_website</RootNamespace>
+    <AssemblyName>pfeCLS_website</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ContactsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InscriptionsController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Branche.cs">
+      <DependentUpon>DbInscriptions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contact.cs">
+      <DependentUpon>DbContact.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DbBranche.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbBranche.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DbBranche.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbBranche.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DbBranche.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbBranche.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DbContact.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbContact.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DbContact.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbContact.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DbContacts.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbContacts.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DbInscriptions.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbInscriptions.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DbInscriptions.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbInscriptions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DbInscriptions.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbInscriptions.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Gmail.cs" />
+    <Compile Include="Models\Inscription.cs">
+      <DependentUpon>DbInscriptions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\assets\js\main.js" />
+    <Content Include="Content\assets\vendor\animate.css\animate.css" />
+    <Content Include="Content\assets\vendor\animate.css\animate.min.css" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\assets\vendor\boxicons\css\animations.css" />
+    <Content Include="Content\assets\vendor\boxicons\css\boxicons.css" />
+    <Content Include="Content\assets\vendor\boxicons\css\boxicons.min.css" />
+    <Content Include="Content\assets\vendor\boxicons\css\transformations.css" />
+    <Content Include="Content\assets\vendor\boxicons\fonts\boxicons.svg" />
+    <Content Include="Content\assets\vendor\counterup\counterup.min.js" />
+    <Content Include="Content\assets\vendor\icofont\icofont.min.css" />
+    <Content Include="Content\assets\vendor\isotope-layout\isotope.pkgd.js" />
+    <Content Include="Content\assets\vendor\isotope-layout\isotope.pkgd.min.js" />
+    <Content Include="Content\assets\vendor\jquery-sticky\jquery.sticky.js" />
+    <Content Include="Content\assets\vendor\jquery.easing\jquery.easing.min.js" />
+    <Content Include="Content\assets\vendor\jquery\jquery.min.js" />
+    <Content Include="Content\assets\vendor\owl.carousel\assets\ajax-loader.gif" />
+    <Content Include="Content\assets\vendor\owl.carousel\assets\owl.carousel.css" />
+    <Content Include="Content\assets\vendor\owl.carousel\assets\owl.carousel.min.css" />
+    <Content Include="Content\assets\vendor\owl.carousel\assets\owl.theme.default.css" />
+    <Content Include="Content\assets\vendor\owl.carousel\assets\owl.theme.default.min.css" />
+    <Content Include="Content\assets\vendor\owl.carousel\assets\owl.theme.green.css" />
+    <Content Include="Content\assets\vendor\owl.carousel\assets\owl.theme.green.min.css" />
+    <Content Include="Content\assets\vendor\owl.carousel\assets\owl.video.play.png" />
+    <Content Include="Content\assets\vendor\owl.carousel\owl.carousel.js" />
+    <Content Include="Content\assets\vendor\owl.carousel\owl.carousel.min.js" />
+    <Content Include="Content\assets\vendor\php-email-form\validate.js" />
+    <Content Include="Content\assets\vendor\venobox\venobox.css" />
+    <Content Include="Content\assets\vendor\venobox\venobox.js" />
+    <Content Include="Content\assets\vendor\venobox\venobox.min.css" />
+    <Content Include="Content\assets\vendor\venobox\venobox.min.js" />
+    <Content Include="Content\assets\vendor\waypoints\jquery.waypoints.min.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\CLS.css" />
+    <Content Include="Content\Images\201804051522943626_5ac6468a49f1a_watermark_800_800.jpg" />
+    <Content Include="Content\Images\30235.jpg" />
+    <Content Include="Content\Images\5650859.png" />
+    <Content Include="Content\Images\81541524-retour-à-l-école-coloré-fournitures-double-frontière-sur-tableau-blanc-calcul-mental-espace-pour-le-texte.jpg" />
+    <Content Include="Content\Images\81563609_107569064108645_6737195475574718464_o.jpg" />
+    <Content Include="Content\Images\83095863_107623160769902_3477245723735490560_o.jpg" />
+    <Content Include="Content\Images\apprendre-langlais-1.jpg" />
+    <Content Include="Content\Images\b3w52bqa30xwz8mpqhz.jpg" />
+    <Content Include="Content\Images\boulier-calculs.jpg" />
+    <Content Include="Content\Images\Capture.PNG" />
+    <Content Include="Content\Images\Capture1.png" />
+    <Content Include="Content\Images\centre-allemand-marrakech-wlc.png" />
+    <Content Include="Content\Images\CLS\gateau.jpeg" />
+    <Content Include="Content\Images\CLS\New Project %2810%29.png" />
+    <Content Include="Content\Images\CLS\New Project %2812%29.png" />
+    <Content Include="Content\Images\CLS\New Project %283%29.png" />
+    <Content Include="Content\Images\CLS\New Project %284%29.png" />
+    <Content Include="Content\Images\CLS\New Project %285%29.png" />
+    <Content Include="Content\Images\CLS\New Project %286%29.png" />
+    <Content Include="Content\Images\CLS\New Project %287%29.png" />
+    <Content Include="Content\Images\CLS\New Project %288%29.png" />
+    <Content Include="Content\Images\CLS\New Project %289%29.png" />
+    <Content Include="Content\Images\CLS\Saltes.jpeg" />
+    <Content Include="Content\Images\CLS\WhatsApp Image 2020-04-12 at 15.54.32.jpeg" />
+    <Content Include="Content\Images\CLS\WhatsApp Image 2020-04-12 at 15.54.33.jpeg" />
+    <Content Include="Content\Images\CLS\WhatsApp Image 2020-04-12 at 15.54.34.jpeg" />
+    <Content Include="Content\Images\CLS\WhatsApp Image 2020-04-12 at 15.54.35.jpeg" />
+    <Content Include="Content\Images\CLS\WhatsApp Image 2020-04-12 at 15.54.36.jpeg" />
+    <Content Include="Content\Images\CLS\WhatsApp Image 2020-04-12 at 15.55.15.jpeg" />
+    <Content Include="Content\Images\CLS\WhatsApp Image 2020-04-12 at 15.55.16.jpeg" />
+    <Content Include="Content\Images\CLS\WhatsApp Image 2020-04-12 at 15.55.17 %281%29.jpeg" />
+    <Content Include="Content\Images\CLS\WhatsApp Image 2020-04-12 at 15.55.19 %281%29.jpeg" />
+    <Content Include="Content\Images\CLS\WhatsApp Image 2020-04-12 at 15.55.19.jpeg" />
+    <Content Include="Content\Images\CLS\WhatsApp Image 2020-04-12 at 15.55.20.jpeg" />
+    <Content Include="Content\Images\CLS\WhatsApp Image 2020-04-12 at 15.55.21 %281%29.jpeg" />
+    <Content Include="Content\Images\CLS\WhatsApp Image 2020-04-12 at 15.55.24.jpeg" />
+    <Content Include="Content\Images\CLS\WhatsApp Image 2020-04-12 at 15.55.25.jpeg" />
+    <Content Include="Content\Images\CLS\WhatsApp Video 2020-04-12 at 15.53.55.mp4" />
+    <Content Include="Content\Images\CLS\WhatsApp Video 2020-04-12 at 15.53.59.mp4" />
+    <Content Include="Content\Images\CLS\WhatsApp Video 2020-04-12 at 15.54.01.mp4" />
+    <Content Include="Content\Images\download %281%29.jpg" />
+    <Content Include="Content\Images\download.jpg" />
+    <Content Include="Content\Images\Fotolia_94609813_M.jpg" />
+    <Content Include="Content\Images\gall-7.jpg" />
+    <Content Include="Content\Images\hero.png" />
+    <Content Include="Content\Images\hqdefault %281%29.jpg" />
+    <Content Include="Content\Images\hqdefault.jpg" />
+    <Content Include="Content\Images\images.jpg" />
+    <Content Include="Content\Images\index17.jpg" />
+    <Content Include="Content\Images\joyeux-anniversaire-international.jpg" />
+    <Content Include="Content\Images\kids-learning-numbers-912875442.jpg" />
+    <Content Include="Content\Images\langues.png" />
+    <Content Include="Content\Images\maxresdefault.jpg" />
+    <Content Include="Content\Images\multiplication6.jpg" />
+    <Content Include="Content\Images\patisserie-gato.jpg" />
+    <Content Include="Content\Images\rue-d-anglais-clipart-3.png" />
+    <Content Include="Content\Images\tables-multiplication.jpg" />
+    <Content Include="Content\Images\telechargement.jpg" />
+    <Content Include="Content\Images\telechargement_1.jpg" />
+    <Content Include="Content\Images\unnamed %281%29.jpg" />
+    <Content Include="Content\Images\unnamed %282%29.jpg" />
+    <Content Include="Content\Images\unnamed.jpg" />
+    <Content Include="Content\Images\WhatsApp Image 2020-04-10 at 22.28.45 %282%29.jpeg" />
+    <Content Include="Content\Images\WhatsApp Image 2020-04-10 at 23.58.45.jpeg" />
+    <Content Include="Content\Images\WhatsApp Image 2020-04-11 at 02.36.34.jpeg" />
+    <Content Include="Content\Images\WhatsApp Image 2020-04-11 at 02.36.35.jpeg" />
+    <Content Include="Content\Images\WhatsApp Image 2020-04-11 at 02.36.36.jpeg" />
+    <Content Include="Content\Images\WhatsApp Image 2020-04-11 at 02.36.37.jpeg" />
+    <Content Include="Content\Images\WhatsApp Image 2020-04-11 at 02.48.35.jpeg" />
+    <Content Include="Content\Images\WhatsApp Image 2020-04-11 at 02.48.36.jpeg" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\DbBranche.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbBranche.edmx</DependentUpon>
+      <LastGenOutput>DbBranche.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DbBranche.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbBranche.edmx</DependentUpon>
+      <LastGenOutput>DbBranche.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DbContact.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbContacts.edmx</DependentUpon>
+      <LastGenOutput>DbContact.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DbContact.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbContacts.edmx</DependentUpon>
+      <LastGenOutput>DbContact.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DbInscriptions.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbInscriptions.edmx</DependentUpon>
+      <LastGenOutput>DbInscriptions.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DbInscriptions.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbInscriptions.edmx</DependentUpon>
+      <LastGenOutput>DbInscriptions.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.js.map" />
+    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="Content\assets\vendor\boxicons\fonts\boxicons.eot" />
+    <Content Include="Content\assets\vendor\boxicons\fonts\boxicons.ttf" />
+    <Content Include="Content\assets\vendor\boxicons\fonts\boxicons.woff" />
+    <Content Include="Content\assets\vendor\boxicons\fonts\boxicons.woff2" />
+    <Content Include="Content\assets\vendor\icofont\fonts\icofont.woff" />
+    <Content Include="Content\assets\vendor\icofont\fonts\icofont.woff2" />
+    <Content Include="Content\assets\vendor\jquery\jquery.min.map" />
+    <EntityDeploy Include="Models\DbContacts.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DbContacts.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DbContacts.edmx.diagram">
+      <DependentUpon>DbContacts.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\DbBranche.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DbBranche.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DbBranche.edmx.diagram">
+      <DependentUpon>DbBranche.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\DbInscriptions.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DbInscriptions.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DbInscriptions.edmx.diagram">
+      <DependentUpon>DbInscriptions.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Calculmental.cshtml" />
+    <Content Include="Views\Home\Cuisine.cshtml" />
+    <Content Include="Views\Home\Langues.cshtml" />
+    <Content Include="Views\Home\Galerie.cshtml" />
+    <Content Include="Views\Contacts\Create.cshtml" />
+    <Content Include="Views\Inscriptions\Create.cshtml" />
+    <Content Include="Views\Inscriptions\Delete.cshtml" />
+    <Content Include="Views\Inscriptions\Edit.cshtml" />
+    <Content Include="Views\Inscriptions\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3608</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:3608/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

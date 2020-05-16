@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="webCLSModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Branche">
+    <Key>
+      <PropertyRef Name="ID_branche" />
+    </Key>
+    <Property Name="ID_branche" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom_branche" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Inscriptions" Relationship="Self.FK__Inscripti__ID_br__1367E606" FromRole="Branche" ToRole="Inscription" />
+  </EntityType>
+  <EntityType Name="Inscription">
+    <Key>
+      <PropertyRef Name="id_part" />
+    </Key>
+    <Property Name="id_part" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom_part" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Prenom_part" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Age_part" Type="Int32" />
+    <Property Name="Email_part" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Profil_part" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Adresse_part" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Tele_part" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Date_Inscr" Type="DateTime" Precision="0" />
+    <Property Name="ID_branche" Type="Int32" />
+    <NavigationProperty Name="Branche" Relationship="Self.FK__Inscripti__ID_br__1367E606" FromRole="Inscription" ToRole="Branche" />
+  </EntityType>
+  <Association Name="FK__Inscripti__ID_br__1367E606">
+    <End Role="Branche" Type="Self.Branche" Multiplicity="0..1" />
+    <End Role="Inscription" Type="Self.Inscription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branche">
+        <PropertyRef Name="ID_branche" />
+      </Principal>
+      <Dependent Role="Inscription">
+        <PropertyRef Name="ID_branche" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DbInscriptions" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Branches" EntityType="Self.Branche" />
+    <EntitySet Name="Inscriptions" EntityType="Self.Inscription" />
+    <AssociationSet Name="FK__Inscripti__ID_br__1367E606" Association="Self.FK__Inscripti__ID_br__1367E606">
+      <End Role="Branche" EntitySet="Branches" />
+      <End Role="Inscription" EntitySet="Inscriptions" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
