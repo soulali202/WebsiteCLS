@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="webCLSModel4StoreContainer" CdmEntityContainer="webCLSEntities5">
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="webCLSModel4.Contact">
+        <MappingFragment StoreEntitySet="Contact">
+          <ScalarProperty Name="id_msg" ColumnName="id_msg" />
+          <ScalarProperty Name="Nom_msg" ColumnName="Nom_msg" />
+          <ScalarProperty Name="Email_msg" ColumnName="Email_msg" />
+          <ScalarProperty Name="Objet_msg" ColumnName="Objet_msg" />
+          <ScalarProperty Name="Message_msg" ColumnName="Message_msg" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

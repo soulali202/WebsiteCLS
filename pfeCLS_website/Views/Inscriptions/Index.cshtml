@@ -2,81 +2,98 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Index</h2>
+<style>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nom_part)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Prenom_part)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Age_part)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email_part)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Profil_part)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Adresse_part)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Tele_part)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date_Inscr)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Branche.Nom_branche)
-        </th>
-        <th></th>
-    </tr>
+    body .listB {
+        padding-left: 20%;
+        padding-top: 15%;
+    }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nom_part)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Prenom_part)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Age_part)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email_part)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Profil_part)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Adresse_part)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tele_part)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date_Inscr)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Branche.Nom_branche)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id_part }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id_part }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id_part })
-        </td>
-    </tr>
-}
+        body .listB table th {
+            background-color: #ccccff;
+        }
 
-</table>
+   
+</style>
+<div class="listB">
+    <h2 style="color:blue;">LISTE DES PERSONNES INSCRITS</h2>
+    <br /><br /><br />
+    <p>
+        <button>@Html.ActionLink("Create New", "Create")</button>
+    </p>
+    <br /><br /><br />
+    <table class="table">
+        <tr>
+            <th>Nom
+                @*@Html.DisplayNameFor(model => model.Nom_part)*@
+            </th>
+            <th>Prenom
+                @*@Html.DisplayNameFor(model => model.Prenom_part)*@
+            </th>
+            <th>Age
+                @*@Html.DisplayNameFor(model => model.Age_part)*@
+            </th>
+            <th>Email
+                @*@Html.DisplayNameFor(model => model.Email_part)*@
+            </th>
+            <th>Profil
+                @*@Html.DisplayNameFor(model => model.Profil_part)*@
+            </th>
+            <th>Adresse
+                @*@Html.DisplayNameFor(model => model.Adresse_part)*@
+            </th>
+            <th>Telephone
+                @*@Html.DisplayNameFor(model => model.Tele_part)*@
+            </th>
+            <th>Date d'inscription
+                @*@Html.DisplayNameFor(model => model.Date_Inscr)*@
+            </th>
+            <th>Branche
+                @*@Html.DisplayNameFor(model => model.Branche.Nom_branche)*@
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom_part)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prenom_part)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age_part)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email_part)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Profil_part)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Adresse_part)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tele_part)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date_Inscr)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Branche.Nom_branche)
+                </td>
+                <td>
+                    <button> @Html.ActionLink("Edit", "Edit", new { id = item.id_part }) </button>
+                    <button> @Html.ActionLink("Details", "Details", new { id = item.id_part }) </button>
+                    <button> @Html.ActionLink("Delete", "Delete", new { id = item.id_part })</button>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

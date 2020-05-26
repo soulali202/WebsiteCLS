@@ -10,7 +10,7 @@
     <Property Name="Objet_msg" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="Message_msg" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityContainer Name="DbContacts" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="webCLSEntities6" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Contacts" EntityType="Self.Contact" />
   </EntityContainer>
 </Schema>

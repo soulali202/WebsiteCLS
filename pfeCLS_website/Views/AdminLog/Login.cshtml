@@ -1,0 +1,80 @@
+﻿@model pfeCLS_website.Models.Utilisateur
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link href="~/Content/StyleLogin.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+
+</head>
+<body>
+    <img class="wave" src="~/Content/Images/Login/wave.png">
+    <div class="container">
+        <div class="img">
+            <img src="~/Content/Images/Login/bck.svg">
+        </div>
+        <div class="login-content">
+            @using (Html.BeginForm("Login", "AdminLog", new { returnUrl = Request.QueryString["returnUrl"] }, FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                    <br /><br />
+                    <hr />
+                    <img src="~/Content/Images/Login/profile.png">
+                    <h2 class="title">BienVenue</h2>
+                    <div class="input-div one">
+                        <div class="i">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="div">
+                            <h5>Nom d'utilisateur</h5>
+                            @Html.EditorFor(model => model.Nom_Uti, new { htmlAttributes = new { @class = "input" } })
+
+                        </div>
+
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Nom_Uti, "", new { @class = "text-danger" })
+                    <div class="input-div pass">
+                        <div class="i">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div class="div">
+                            <h5>Mot de passe</h5>
+                            @Html.EditorFor(model => model.motPasse, new { htmlAttributes = new { @class = "input", Type = "Password" } })
+
+                        </div>
+
+                    </div>
+                    @Html.ValidationMessageFor(model => model.motPasse, "", new { @class = "text-danger" })
+
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Authentifier" class="btn" />
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+
+        </div>
+    </div>
+
+
+    <script src="~/Scripts/main.js"></script>
+
+</body>
+
+</html>

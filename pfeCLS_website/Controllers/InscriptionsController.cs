@@ -13,28 +13,28 @@ namespace pfeCLS_website.Controllers
     public class InscriptionsController : Controller
     {
         private DbInscriptions db = new DbInscriptions();
-
+        [Authorize]
         // GET: Inscriptions
-        //public ActionResult Index()
-        //{
-        //    var inscriptions = db.Inscriptions.Include(i => i.Branche);
-        //    return View(inscriptions.ToList());
-        //}
-
+        public ActionResult Index()
+        {
+            var inscriptions = db.Inscriptions.Include(i => i.Branche);
+            return View(inscriptions.ToList());
+        }
+        [Authorize]
         // GET: Inscriptions/Details/5
-        //public ActionResult Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Inscription inscription = db.Inscriptions.Find(id);
-        //    if (inscription == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(inscription);
-        //}
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Inscription inscription = db.Inscriptions.Find(id);
+            if (inscription == null)
+            {
+                return HttpNotFound();
+            }
+            return View(inscription);
+        }
 
         // GET: Inscriptions/Create
         public ActionResult Create()
@@ -50,46 +50,47 @@ namespace pfeCLS_website.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id_part,Nom_part,Prenom_part,Age_part,Email_part,Profil_part,Adresse_part,Tele_part,Date_Inscr,ID_branche")] Inscription inscription)
         {
-            
-                if (ModelState.IsValid)
-                {
-                    db.Inscriptions.Add(inscription);
-                    db.SaveChanges();
-                    return RedirectToAction("Create");
-                }
+            if (ModelState.IsValid)
+            {
+                inscription.Date_Inscr = DateTime.Now;
+                db.Inscriptions.Add(inscription);
 
-                ViewBag.ID_branche = new SelectList(db.Branches, "ID_branche", "Nom_branche", inscription.ID_branche);
-           
-              
-               
+                db.SaveChanges();
+                return RedirectToAction("Create");
+            }
 
-           
-                ViewBag.Error = " Inscription non effectuer ";
+            ViewBag.ID_branche = new SelectList(db.Branches, "ID_branche", "Nom_branche", inscription.ID_branche);
+
+
+
+
+
+            ViewBag.Error = " Inscription non effectuer ";
             ViewBag.Message = "Inscription effectuer";
             return View(inscription);
-           
-      
-        }
 
+        }
+        [Authorize]
         // GET: Inscriptions/Edit/5
-        //public ActionResult Edit(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Inscription inscription = db.Inscriptions.Find(id);
-        //    if (inscription == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    ViewBag.ID_branche = new SelectList(db.Branches, "ID_branche", "Nom_branche", inscription.ID_branche);
-        //    return View(inscription);
-        //}
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Inscription inscription = db.Inscriptions.Find(id);
+            if (inscription == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.ID_branche = new SelectList(db.Branches, "ID_branche", "Nom_branche", inscription.ID_branche);
+            return View(inscription);
+        }
 
         // POST: Inscriptions/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id_part,Nom_part,Prenom_part,Age_part,Email_part,Profil_part,Adresse_part,Tele_part,Date_Inscr,ID_branche")] Inscription inscription)
@@ -103,32 +104,32 @@ namespace pfeCLS_website.Controllers
             ViewBag.ID_branche = new SelectList(db.Branches, "ID_branche", "Nom_branche", inscription.ID_branche);
             return View(inscription);
         }
-
+        [Authorize]
         // GET: Inscriptions/Delete/5
-        //public ActionResult Delete(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Inscription inscription = db.Inscriptions.Find(id);
-        //    if (inscription == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(inscription);
-        //}
-
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Inscription inscription = db.Inscriptions.Find(id);
+            if (inscription == null)
+            {
+                return HttpNotFound();
+            }
+            return View(inscription);
+        }
+        [Authorize]
         // POST: Inscriptions/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(int id)
-        //{
-        //    Inscription inscription = db.Inscriptions.Find(id);
-        //    db.Inscriptions.Remove(inscription);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Inscription inscription = db.Inscriptions.Find(id);
+            db.Inscriptions.Remove(inscription);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
         protected override void Dispose(bool disposing)
         {

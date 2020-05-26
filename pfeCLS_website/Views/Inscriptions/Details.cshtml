@@ -1,0 +1,101 @@
+﻿@model pfeCLS_website.Models.Inscription
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .detailB {
+        padding-left: 25%;
+        padding-top: 15%;
+    }
+</style>
+<div class="detailB">
+    <h2 style="color:blue;">
+        DETAILS :
+    </h2>
+
+    <div>
+        <h4>Inscription</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nom_part)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nom_part)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Prenom_part)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Prenom_part)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Age_part)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Age_part)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email_part)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email_part)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Profil_part)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Profil_part)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Adresse_part)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Adresse_part)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Tele_part)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tele_part)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Date_Inscr)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Date_Inscr)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Branche.Nom_branche)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Branche.Nom_branche)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        <button>@Html.ActionLink("Edit", "Edit", new { id = Model.id_part }) </button>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+    </div>

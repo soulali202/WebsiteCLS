@@ -4,7 +4,6 @@
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
@@ -147,15 +146,15 @@
                                 <br /><br />
                                 <div class="col-md-offset-2 col-md-10">
                                     <div class="text-center">
-                                  
 
-                                        @if (Html.ValidationSummary() == null || ViewBag.Error==null)
+
+                                        @if (Html.ValidationSummary() == null || ViewBag.Error == null)
                                         {
                                             <h5>@ViewBag.Message</h5>
                                         }
                                         else
                                         {
-                                            <h5>@ViewBag.Error</h5> 
+                                            <h5>@ViewBag.Error</h5>
                                         }
 
                                     </div>

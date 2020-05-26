@@ -16,22 +16,12 @@ namespace pfeCLS_website.Models
     public partial class Contact
     {
         public int id_msg { get; set; }
-
         [Required(ErrorMessage = "Veuillez saisir votre nom.")]
         public string Nom_msg { get; set; }
-
-        [Display(Name = "Email Address")]
-        [EmailAddress]
-        [RegularExpression("^[_A-Za-z'`+-.]+([_A-Za-z0-9'+-.]+)*@([A-Za-z0-9-])+(\\.[A-Za-z0-9]+)*(\\.([A-Za-z]*){3,})$", ErrorMessage = "Saisissez l'adresse e-mail appropriée")]
-        [Required(ErrorMessage = "non approprié de l'adresse e-mail.")]
-        //[DataType(DataType.EmailAddress, ErrorMessage = "non approprié de l'adresse e-mail")]
-
         public string Email_msg { get; set; }
-
-       
+        [Required(ErrorMessage = "Veuillez saisir un objet.")]
         public string Objet_msg { get; set; }
-
-        [Required(ErrorMessage = "Veuillez saisir un message.")]
+        [Required(ErrorMessage = "Veuillez saisir votre message.")]
         public string Message_msg { get; set; }
     }
 }

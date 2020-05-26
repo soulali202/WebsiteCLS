@@ -1,0 +1,59 @@
+﻿@model pfeCLS_website.Models.Contact
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<style>
+    .detailB {
+        padding-left: 25%;
+        padding-top: 15%;
+    }
+</style>
+<div class="detailB">
+    <h2 style="color:#ff8000">DETAILS : </h2>
+
+    <div>
+        
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>Nom :
+                @*@Html.DisplayNameFor(model => model.Nom_msg)*@
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nom_msg)
+            </dd>
+
+            <dt>Email : 
+                @*@Html.DisplayNameFor(model => model.Email_msg)*@
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email_msg)
+            </dd>
+
+            <dt>Objet :
+                @*@Html.DisplayNameFor(model => model.Objet_msg)*@
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Objet_msg)
+            </dd>
+
+            <dt>Message : 
+                @*@Html.DisplayNameFor(model => model.Message_msg)*@
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Message_msg)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        <button style="color:orangered;"> @Html.ActionLink("Edit", "Edit", new { id = Model.id_msg })</button> 
+        @Html.ActionLink("Retour à la liste", "Index")
+    </p>
+    </div>
+

@@ -1,0 +1,72 @@
+﻿@model IEnumerable<pfeCLS_website.Models.Contact>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<style>
+
+    body .listB {
+        padding-left: 20%;
+        padding-top: 15%;
+    }
+
+        body .listB table th {
+            background-color: #ffe0cc;
+        }
+
+</style>
+<div class="listB">
+    <h2 style="color:#ff8000;">LISTE DES MESSAGES :</h2>
+    <br /><br /><br />
+    @*<p>
+        <button>@Html.ActionLink("Create New", "CreateByAdmin")</button>
+    </p>*@
+    <br /><br />
+    <table class="table" border="1">
+        <tr>
+            <th>
+                Nom
+                @*@Html.DisplayNameFor(model => model.Nom_msg)*@
+            </th>
+            <th>
+                Email
+                @*@Html.DisplayNameFor(model => model.Email_msg)*@
+            </th>
+            <th>
+                Objet
+                @*@Html.DisplayNameFor(model => model.Objet_msg)*@
+            </th>
+            <th>
+                Message
+                @*@Html.DisplayNameFor(model => model.Message_msg)*@
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom_msg)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email_msg)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Objet_msg)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Message_msg)
+                </td>
+                <td>
+                    <button class="buE"> @Html.ActionLink("Edit", "Edit", new { id = item.id_msg }) </button> 
+                    <button class="buDet">  @Html.ActionLink("Details", "Details", new { id = item.id_msg }) </button>
+                    <button class="buDel">    @Html.ActionLink("Delete", "Delete", new { id = item.id_msg })</button>
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>
+

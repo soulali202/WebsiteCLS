@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    @*<title>@Page.Title</title>*@
+    @*@RenderSection("head", required: false)*@
+    <title>CLS Admin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
+    <meta name="author" content="GeeksLabs">
+    <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+
+    <!-- Bootstrap CSS -->
+    <link href=@Url.Content("/Content/css/bootstrap.min.css") rel="stylesheet" />
+    <!-- bootstrap theme -->
+    <link href=@Url.Content("/Content/css/bootstrap-theme.css") rel="stylesheet" />
+    <!--external css-->
+    <!-- font icon -->
+    <link href=@Url.Content("/Content/css/elegant-icons-style.css") rel="stylesheet" />
+    <link href=@Url.Content("/Content/css/font-awesome.min.css") rel="stylesheet" />
+    <!-- full calendar css-->
+    <link href=@Url.Content("/Content/AssetsAdmin/fullcalendar/fullcalendar/fullcalendar.css") rel="stylesheet" />
+    <link href=@Url.Content("/Content/AssetsAdmin/fullcalendar/fullcalendar/bootstrap-fullcalendar.css") rel="stylesheet" />
+    <!-- easy pie chart-->
+    <link href=@Url.Content("/Content/AssetsAdmin/jquery-easy-pie-chart/jquery.easy-pie-chart.css") rel="stylesheet" type="text/css" media="screen" />
+    <!-- owl carousel -->
+    <link href=@Url.Content("/Content/css/owl.carousel.css") rel="stylesheet" type="text/css" />
+    <link href=@Url.Content("/Content/css/jquery-jvectormap-1.2.2.css") rel="stylesheet" />
+    <!-- Custom styles -->
+    <link href=@Url.Content("/Content/css/fullcalendar.css") rel="stylesheet" />
+    <link href=@Url.Content("/Content/css/widgets.css") rel="stylesheet" />
+    <link href=@Url.Content("/Content/css/style.css") rel="stylesheet" />
+    <link href=@Url.Content("/Content/css/style-responsive.css") rel="stylesheet" />
+    <link href=@Url.Content("/Content/css/xcharts.min.css") rel="stylesheet" />
+    <link href=@Url.Content("/Content/css/jquery-ui-1.10.4.min.css") rel="stylesheet" />
+
+    <link href=@Url.Content("/Content/assets/vendor/icofont/icofont.min.css") rel="stylesheet" />
+    <link href=@Url.Content("/Content/assets/vendor/boxicons/css/boxicons.min.css") rel="stylesheet" />
+
+</head>
+<body>
+    <!-- container section start -->
+    <section id="container" class="">
+
+
+        <header class="header dark-bg">
+            <div class="toggle-nav">
+                <div class="icofont-navigation-menu" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
+            </div>
+
+            <!--logo start-->
+            <a href="@Url.Action("Index","AdminLog")" class="logo">CLS <span class="lite">Administration</span></a>
+            <!--logo end-->
+
+
+
+            <div class="top-nav notification-row">
+                <!-- notificatoin dropdown start-->
+                <ul class="nav pull-right top-menu">
+
+
+                    <!-- inbox notificatoin start-->
+                    <li id="mail_notificatoin_bar" class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="@Url.Action("Index","Contacts")">
+                            <i class="icon-envelope-l"></i>
+                            <span class="badge bg-important">4</span>
+                        </a>
+                        <ul class="dropdown-menu extended inbox">
+                            <div class="notify-arrow notify-arrow-blue"></div>
+                            <li>
+                                <p class="blue">Vous avez 4 nouveaux messages</p>
+                            </li>
+
+                            <li>
+                                <a href="@Url.Action("Index","Contacts")">See all messages</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- inbox notificatoin end -->
+                    <!-- user login dropdown start-->
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="profile-ava">
+                                <img src="~/Content/img/man.png" />
+                            </span>
+                            <span class="username">CLS</span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu extended logout">
+                            <div class="log-arrow-up"></div>
+                            <li class="eborder-top">
+
+                            <li>
+                                <a href="@Url.Action("Index","Contacts")"><i class="icofont-ui-message"></i> Messages</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","Inscriptions")"><i class="icofont-live-messenger"></i> Tous les inscription</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("SignOut","AdminLog")"><i class="icofont-key"></i> Deconnecter</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <!-- user login dropdown end -->
+                </ul>
+                <!-- notificatoin dropdown end-->
+            </div>
+        </header>
+        <!--header end-->
+        <!--sidebar start-->
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu">
+                    <li class="active">
+                        <a class="" href="@Url.Action("Index","AdminLog")">
+                            <i class="icofont-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="@Url.Action("Index","Contacts")" class="">
+                            <i class="icofont-ui-message"></i>
+                            <span>Messages</span>
+
+                        </a>
+
+                    </li>
+                    <li class="sub-menu">
+                        <a href="@Url.Action("Index","Inscriptions")" class="">
+                            <i class="icofont-live-messenger"></i>
+                            <span>Pre-inscriptions</span>
+
+                        </a>
+
+
+
+
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <!--sidebar end-->
+        <!--main content end-->
+        @RenderBody()
+    </section>
+
+
+    <!-- container section start -->
+    <!-- javascripts -->
+    <script src=@Url.Content("/Content/JsAdmin/jquery.js")></script>
+    <script src=@Url.Content("/Content/JsAdmin/jquery-ui-1.10.4.min.js")></script>
+    <script src=@Url.Content("/Content/JsAdmin/jquery-1.8.3.min.js")></script>
+    <script src=@Url.Content("/Content/JsAdmin/jquery-ui-1.9.2.custom.min.js") type="text/javascript"></script>
+    <!-- bootstrap -->
+    <script src=@Url.Content("/Content/JsAdmin/bootstrap.min.js")></script>
+    <!-- nice scroll -->
+    <script src=@Url.Content("/Content/JsAdmin/jquery.scrollTo.min.js")></script>
+    <script src=@Url.Content("/Content/JsAdmin/jquery.nicescroll.js") type="text/javascript"></script>
+    <!-- charts scripts -->
+    <script src=@Url.Content("/Content/AssetsAdmin/jquery-knob/js/jquery.knob.js")></script>
+    <script src=@Url.Content("/Content/JsAdmin/jquery.sparkline.js") type="text/javascript"></script>
+    <script src=@Url.Content("/Content/AssetsAdmin/jquery-easy-pie-chart/jquery.easy-pie-chart.js")></script>
+    <script src=@Url.Content("/Content/JsAdmin/owl.carousel.js")></script>
+    <!-- jQuery full calendar -->
+    <script src=@Url.Content("/Content/JsAdmin/fullcalendar.min.js")></script>
+    <!-- Full Google Calendar - Calendar -->
+    <script src=@Url.Content("/Content/AssetsAdmin/fullcalendar/fullcalendar/fullcalendar.js")></script>
+    <!--script for this page only-->
+    <script src=@Url.Content("/Content/JsAdmin/calendar-custom.js")></script>
+    <script src=@Url.Content("/Content/JsAdmin/jquery.rateit.min.js")></script>
+    <!-- custom select -->
+    <script src=@Url.Content("/Content/JsAdmin/jquery.customSelect.min.js")></script>
+    <script src=@Url.Content("/Content/AssetsAdmin/chart-master/Chart.js")></script>
+    <!--custome script for all page-->
+    <script src=@Url.Content("/Content/JsAdmin/scripts.js")></script>
+    <!-- custom script for this page-->
+    <script src=@Url.Content("/Content/JsAdmin/sparkline-chart.js")></script>
+    <script src=@Url.Content("/Content/JsAdmin/easy-pie-chart.js")></script>
+    <script src=@Url.Content("/Content/JsAdmin/jquery-jvectormap-1.2.2.min.js")></script>
+    <script src=@Url.Content("/Content/JsAdmin/jquery-jvectormap-world-mill-en.js")></script>
+    <script src=@Url.Content("/Content/JsAdmin/xcharts.min.js")></script>
+    <script src=@Url.Content("/Content/JsAdmin/jquery.autosize.min.js")></script>
+    <script src=@Url.Content("/Content/JsAdmin/jquery.placeholder.min.js")></script>
+    <script src=@Url.Content("/Content/JsAdmin/gdp-data.js")></script>
+    <script src=@Url.Content("/Content/JsAdmin/morris.min.js")></script>
+    <script src=@Url.Content("/Content/JsAdmin/sparklines.js")></script>
+    <script src=@Url.Content("/Content/JsAdmin/charts.js")></script>
+    <script src=@Url.Content("/Content/JsAdmin/jquery.slimscroll.min.js")></script>
+    <script>
+        //knob
+        $(function () {
+            $(".knob").knob({
+                'draw': function () {
+                    $(this.i).val(this.cv + '%')
+                }
+            })
+        });
+
+        //carousel
+        $(document).ready(function () {
+            $("#owl-slider").owlCarousel({
+                navigation: true,
+                slideSpeed: 300,
+                paginationSpeed: 400,
+                singleItem: true
+
+            });
+        });
+
+        //custom select box
+
+        $(function () {
+            $('select.styled').customSelect();
+        });
+
+        /* ---------- Map ---------- */
+        $(function () {
+            $('#map').vectorMap({
+                map: 'world_mill_en',
+                series: {
+                    regions: [{
+                        values: gdpData,
+                        scale: ['#000', '#000'],
+                        normalizeFunction: 'polynomial'
+                    }]
+                },
+                backgroundColor: '#eef3f7',
+                onLabelShow: function (e, el, code) {
+                    el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
+                }
+            });
+        });
+    </script>
+    <script src=@Url.Content("/Content/assets/js/main.js")></script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    <!--main content start-->
+<section id="main-content">
+    <section class="wrapper">
+        <!--overview start-->
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="icofont-dashboard"></i> Dashboard</h3>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <div class="info-box blue-bg">
+                    <i class="icofont-eye"></i>
+                    <div class="count">6.674</div>
+                    <div class="title">Visites</div>
+                </div>
+                <!--/.info-box-->
+            </div>
+            <!--/.col-->
+
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <div class="info-box brown-bg">
+                    <i class="icofont-live-support"></i>
+                    <div class="count">7.538</div>
+                    <div class="title">Visiteurs</div>
+                </div>
+                <!--/.info-box-->
+            </div>
+            <!--/.col-->
+
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <div class="info-box dark-bg">
+                    <i class="icofont-computer"></i>
+                    <div class="count">4.362</div>
+                    <div class="title">Visiteurs Actifs</div>
+                </div>
+                <!--/.info-box-->
+            </div>
+            <!--/.col-->
+
+
+            <!--/.col-->
+
+        </div>
+        <!--/.row-->
+
+
+        <div class="row">
+            <div class="col-lg-9 col-md-12">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2><i class="fa fa-map-marker red"></i><strong>Countries</strong></h2>
+
+                    </div>
+                    <div class="panel-body-map">
+                        <div id="map" style="height:380px;"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Graph -->
+
+            <div class="col-md-3">
+
+                <div class="social-box facebook">
+                    <i class="icofont-facebook"></i>
+                    <ul>
+                        <li>
+                            <strong>256k</strong>
+                            <span>friends</span>
+                        </li>
+                        <li>
+                            <strong>359</strong>
+                            <span>feeds</span>
+                        </li>
+                    </ul>
+                </div>
+                <!--/social-box-->
+            </div>
+
+            <!-- Text -->
+            <!--/col-->
+
+            <div class="col-md-3">
+
+                <div class="social-box google-plus">
+                    <i class="icofont-google-plus"></i>
+                    <ul>
+                        <li>
+                            <strong>962</strong>
+                            <span>followers</span>
+                        </li>
+                        <li>
+                            <strong>256</strong>
+                            <span>circles</span>
+                        </li>
+                    </ul>
+                </div>
+                <!--/social-box-->
+
+            </div>
+            <!--/col-->
+            <div class="col-md-3">
+
+                <div class="social-box twitter">
+                    <i class="icofont-linkedin"></i>
+                    <ul>
+                        <li>
+                            <strong>1562k</strong>
+                            <span>followers</span>
+                        </li>
+                        <li>
+                            <strong>2562</strong>
+                            <span>relation</span>
+                        </li>
+                    </ul>
+                </div>
+                <!--/social-box-->
+
+            </div>
+            <!--/col-->
+
+        </div>
+
+
+        <!-- Today status end -->
+
+
+
+        <div class="row">
+
+            <div class="col-lg-9 col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2><i class="fa fa-flag-o red"></i><strong>Inscriptions</strong></h2>
+
+                    </div>
+                    <div class="panel-body">
+                        <table class="table bootstrap-datatable countries">
+                            <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Prenom</th>
+                                    <th>Age</th>
+                                    <th>Email</th>
+                                    <th>Profil</th>
+                                    <th>Adresse</th>
+                                    <th>Telephone</th>
+                                    <th>Date d'inscription</th>
+                                    <th>Branche</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- statics end -->
+        <!-- project team & activity start -->
+        <div class="row">
+            <div class="col-md-4 portlets">
+                <!-- Widget -->
+            
+
+
+            </div>
+        </div>
+
+    
+        <br><br>
+
+        <div class="row">
+            <div class="col-md-6 portlets">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2><strong>Calendar</strong></h2>
+                    
+
+                    </div><br><br><br>
+                    <div class="panel-body">
+                        <!-- Widget content -->
+                        <!-- Below line produces calendar. I am using FullCalendar plugin. -->
+                        <div id="calendar"></div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-6 portlets">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2><i class="fa fa-flag-o red"></i><strong>Message</strong></h2>
+
+                    </div>
+                    <div class="panel-body">
+                        <table class="table bootstrap-datatable countries">
+                            <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Email</th>
+                                    <th>Objet</th>
+                                    <th>Message</th>
+                                
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+
+                </div>
+                            
+                        
+                       \
+                
+                </div>
+
+            </div>
+
+    
+        <!-- project team & activity end -->
+
+    </section>
+
+    <!--main content end-->
+</section>
+    <!-- container section start -->
+
+
+
+}
+
+
