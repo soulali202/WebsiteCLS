@@ -14,7 +14,10 @@
                 <li><a href="@Url.Action("Index","Home")">Accueil</a></li>
                 <li>Inscription</li>
             </ol>
-            <h2>Inscription</h2>
+            <div class="animated bounce infinite">
+                <h2>Inscription</h2>
+            </div>
+          
 
         </div>
     </section><!-- End Breadcrumbs -->
@@ -148,14 +151,8 @@
                                     <div class="text-center">
 
 
-                                        @if (Html.ValidationSummary() == null || ViewBag.Error == null)
-                                        {
-                                            <h5>@ViewBag.Message</h5>
-                                        }
-                                        else
-                                        {
-                                            <h5>@ViewBag.Error</h5>
-                                        }
+                                      
+                                     
 
                                     </div>
                                 </div>

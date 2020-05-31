@@ -12,34 +12,34 @@ namespace pfeCLS_website.Controllers
 {
     public class InscriptionsController : Controller
     {
-        private DbInscriptions db = new DbInscriptions();
-        [Authorize]
-        // GET: Inscriptions
-        public ActionResult Index()
-        {
-            var inscriptions = db.Inscriptions.Include(i => i.Branche);
-            return View(inscriptions.ToList());
-        }
-        [Authorize]
-        // GET: Inscriptions/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Inscription inscription = db.Inscriptions.Find(id);
-            if (inscription == null)
-            {
-                return HttpNotFound();
-            }
-            return View(inscription);
-        }
+        private DbInscriptions dbI = new DbInscriptions();
+        //[Authorize]
+        //// GET: Inscriptions
+        //public ActionResult Index()
+        //{
+        //    var inscriptions = dbI.Inscriptions.Include(i => i.Branche);
+        //    return View(inscriptions.ToList());
+        //}
+        //[Authorize]
+        //// GET: Inscriptions/Details/5
+        //public ActionResult Details(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Inscription inscription = dbI.Inscriptions.Find(id);
+        //    if (inscription == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(inscription);
+        //}
 
         // GET: Inscriptions/Create
         public ActionResult Create()
         {
-            ViewBag.ID_branche = new SelectList(db.Branches, "ID_branche", "Nom_branche");
+            ViewBag.ID_branche = new SelectList(dbI.Branches, "ID_branche", "Nom_branche");
             return View();
         }
 
@@ -50,24 +50,27 @@ namespace pfeCLS_website.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id_part,Nom_part,Prenom_part,Age_part,Email_part,Profil_part,Adresse_part,Tele_part,Date_Inscr,ID_branche")] Inscription inscription)
         {
-            if (ModelState.IsValid)
-            {
-                inscription.Date_Inscr = DateTime.Now;
-                db.Inscriptions.Add(inscription);
+          
+                if (ModelState.IsValid)
+                {
+                    inscription.Date_Inscr = DateTime.Now;
+                    dbI.Inscriptions.Add(inscription);
 
-                db.SaveChanges();
-                return RedirectToAction("Create");
-            }
+                    dbI.SaveChanges();
+                   
+                    return RedirectToAction("Create");
+                
+                }
 
-            ViewBag.ID_branche = new SelectList(db.Branches, "ID_branche", "Nom_branche", inscription.ID_branche);
+                ViewBag.ID_branche = new SelectList(dbI.Branches, "ID_branche", "Nom_branche", inscription.ID_branche);
+
+             
+       
+            return View(inscription)
 
 
 
-
-
-            ViewBag.Error = " Inscription non effectuer ";
-            ViewBag.Message = "Inscription effectuer";
-            return View(inscription);
+;
 
         }
         [Authorize]
@@ -78,12 +81,12 @@ namespace pfeCLS_website.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Inscription inscription = db.Inscriptions.Find(id);
+            Inscription inscription = dbI.Inscriptions.Find(id);
             if (inscription == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ID_branche = new SelectList(db.Branches, "ID_branche", "Nom_branche", inscription.ID_branche);
+            ViewBag.ID_branche = new SelectList(dbI.Branches, "ID_branche", "Nom_branche", inscription.ID_branche);
             return View(inscription);
         }
 
@@ -97,11 +100,11 @@ namespace pfeCLS_website.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(inscription).State = EntityState.Modified;
-                db.SaveChanges();
+                dbI.Entry(inscription).State = EntityState.Modified;
+                dbI.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ID_branche = new SelectList(db.Branches, "ID_branche", "Nom_branche", inscription.ID_branche);
+            ViewBag.ID_branche = new SelectList(dbI.Branches, "ID_branche", "Nom_branche", inscription.ID_branche);
             return View(inscription);
         }
         [Authorize]
@@ -112,7 +115,7 @@ namespace pfeCLS_website.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Inscription inscription = db.Inscriptions.Find(id);
+            Inscription inscription = dbI.Inscriptions.Find(id);
             if (inscription == null)
             {
                 return HttpNotFound();
@@ -125,9 +128,9 @@ namespace pfeCLS_website.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Inscription inscription = db.Inscriptions.Find(id);
-            db.Inscriptions.Remove(inscription);
-            db.SaveChanges();
+            Inscription inscription = dbI.Inscriptions.Find(id);
+            dbI.Inscriptions.Remove(inscription);
+            dbI.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -135,7 +138,7 @@ namespace pfeCLS_website.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                dbI.Dispose();
             }
             base.Dispose(disposing);
         }

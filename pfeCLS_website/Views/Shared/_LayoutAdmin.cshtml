@@ -65,7 +65,7 @@
 
                     <!-- inbox notificatoin start-->
                     <li id="mail_notificatoin_bar" class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="@Url.Action("Index","Contacts")">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="@Url.Action("listContact","AdminLog")">
                             <i class="icon-envelope-l"></i>
                             <span class="badge bg-important">4</span>
                         </a>
@@ -76,7 +76,7 @@
                             </li>
 
                             <li>
-                                <a href="@Url.Action("Index","Contacts")">See all messages</a>
+                                <a href="@Url.Action("listContact","AdminLog")">See all messages</a>
                             </li>
                         </ul>
                     </li>
@@ -95,10 +95,10 @@
                             <li class="eborder-top">
 
                             <li>
-                                <a href="@Url.Action("Index","Contacts")"><i class="icofont-ui-message"></i> Messages</a>
+                                <a href="@Url.Action("listContact","AdminLog")"><i class="icofont-ui-message"></i> Messages</a>
                             </li>
                             <li>
-                                <a href="@Url.Action("Index","Inscriptions")"><i class="icofont-live-messenger"></i> Tous les inscription</a>
+                                <a href="@Url.Action("listInscription","AdminLog")"><i class="icofont-live-messenger"></i> Tous les inscription</a>
                             </li>
                             <li>
                                 <a href="@Url.Action("SignOut","AdminLog")"><i class="icofont-key"></i> Deconnecter</a>
@@ -124,7 +124,7 @@
                         </a>
                     </li>
                     <li class="sub-menu">
-                        <a href="@Url.Action("Index","Contacts")" class="">
+                        <a href="@Url.Action("listContact","AdminLog")" class="">
                             <i class="icofont-ui-message"></i>
                             <span>Messages</span>
 
@@ -132,7 +132,7 @@
 
                     </li>
                     <li class="sub-menu">
-                        <a href="@Url.Action("Index","Inscriptions")" class="">
+                        <a href="@Url.Action("listInscription","AdminLog")" class="">
                             <i class="icofont-live-messenger"></i>
                             <span>Pre-inscriptions</span>
 

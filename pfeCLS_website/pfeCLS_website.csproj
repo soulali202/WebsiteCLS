@@ -207,31 +207,33 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DbInscriptions.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\DbUtilisateurs.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbUtilisateurs.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DbUtilisateurs.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbUtilisateurs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DbUtilisateurs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbUtilisateurs.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\Gmail.cs" />
     <Compile Include="Models\Inscription.cs">
       <DependentUpon>DbInscriptions.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Login.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Login.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Login.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Login.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Login.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Login.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\Utilisateur.cs">
-      <DependentUpon>Login.tt</DependentUpon>
+      <DependentUpon>DbUtilisateurs.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\aos\aos.css" />
+    <Content Include="Content\aos\aos.js" />
     <Content Include="Content\AssetsAdmin\chart-master\.gitignore" />
     <Content Include="Content\AssetsAdmin\chart-master\Chart.js" />
     <Content Include="Content\AssetsAdmin\chart-master\Chart.min.js" />
@@ -785,6 +787,7 @@
     <Content Include="Content\JsAdmin\sparkline-chart.js" />
     <Content Include="Content\JsAdmin\sparklines.js" />
     <Content Include="Content\JsAdmin\xcharts.min.js" />
+    <Content Include="Content\main.js" />
     <Content Include="fonts\ElegantIcons.svg" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Models\DbContacts.Context.tt">
@@ -796,6 +799,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DbContacts.edmx</DependentUpon>
       <LastGenOutput>DbContacts.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DbUtilisateurs.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbUtilisateurs.edmx</DependentUpon>
+      <LastGenOutput>DbUtilisateurs.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DbUtilisateurs.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbUtilisateurs.edmx</DependentUpon>
+      <LastGenOutput>DbUtilisateurs.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\contactform\contactform.js" />
     <Content Include="Scripts\main.js" />
@@ -823,16 +836,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DbInscriptions.edmx</DependentUpon>
       <LastGenOutput>DbInscriptions.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Login.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Login.edmx</DependentUpon>
-      <LastGenOutput>Login.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Login.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Login.edmx</DependentUpon>
-      <LastGenOutput>Login.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -866,13 +869,6 @@
     </EntityDeploy>
     <Content Include="Models\DbInscriptions.edmx.diagram">
       <DependentUpon>DbInscriptions.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="Models\Login.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Login.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Login.edmx.diagram">
-      <DependentUpon>Login.edmx</DependentUpon>
     </Content>
     <EntityDeploy Include="Models\DbContacts.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -930,6 +926,13 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\FontAwesome.otf" />
+    <EntityDeploy Include="Models\DbUtilisateurs.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DbUtilisateurs.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DbUtilisateurs.edmx.diagram">
+      <DependentUpon>DbUtilisateurs.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -965,15 +968,16 @@
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\AdminLog\Index.cshtml" />
     <Content Include="Views\Contacts\Create.cshtml" />
-    <Content Include="Views\Contacts\Delete.cshtml" />
-    <Content Include="Views\Contacts\Details.cshtml" />
-    <Content Include="Views\Contacts\Edit.cshtml" />
-    <Content Include="Views\Contacts\Index.cshtml" />
     <Content Include="Views\Inscriptions\Create.cshtml" />
-    <Content Include="Views\Inscriptions\Delete.cshtml" />
-    <Content Include="Views\Inscriptions\Details.cshtml" />
-    <Content Include="Views\Inscriptions\Edit.cshtml" />
-    <Content Include="Views\Inscriptions\Index.cshtml" />
+    <Content Include="Views\AdminLog\DeleteInscription.cshtml" />
+    <Content Include="Views\AdminLog\DetailsInscription.cshtml" />
+    <Content Include="Views\AdminLog\EditInscription.cshtml" />
+    <Content Include="Views\AdminLog\ListInscription.cshtml" />
+    <Content Include="Views\AdminLog\listContact.cshtml" />
+    <Content Include="Views\AdminLog\DetailsContact.cshtml" />
+    <Content Include="Views\AdminLog\EditContact.cshtml" />
+    <Content Include="Views\AdminLog\DeleteContact.cshtml" />
+    <Content Include="Views\AdminLog\CreateInscription.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

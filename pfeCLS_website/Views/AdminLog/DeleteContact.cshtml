@@ -1,23 +1,27 @@
 ﻿@model pfeCLS_website.Models.Contact
-
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "DeleteContact";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
+
+
 <style>
-    .detailB {
+    .deleteB {
         padding-left: 25%;
         padding-top: 15%;
     }
 </style>
-<div class="detailB">
-    <h2 style="color:#ff8000">DETAILS : </h2>
 
+<div class="deleteB">
+    <h2 style="color:#ff8000;">SUPPRIMER : </h2>
+
+    <h3>Voulez-vous vraiment supprimer ?</h3>
     <div>
-        
+
         <hr />
         <dl class="dl-horizontal">
-            <dt>Nom :
+            <dt>
+                Nom :
                 @*@Html.DisplayNameFor(model => model.Nom_msg)*@
             </dt>
 
@@ -25,7 +29,8 @@
                 @Html.DisplayFor(model => model.Nom_msg)
             </dd>
 
-            <dt>Email : 
+            <dt>
+                Email :
                 @*@Html.DisplayNameFor(model => model.Email_msg)*@
             </dt>
 
@@ -33,7 +38,8 @@
                 @Html.DisplayFor(model => model.Email_msg)
             </dd>
 
-            <dt>Objet :
+            <dt>
+                Objet :
                 @*@Html.DisplayNameFor(model => model.Objet_msg)*@
             </dt>
 
@@ -41,7 +47,8 @@
                 @Html.DisplayFor(model => model.Objet_msg)
             </dd>
 
-            <dt>Message : 
+            <dt>
+                Message :
                 @*@Html.DisplayNameFor(model => model.Message_msg)*@
             </dt>
 
@@ -50,10 +57,17 @@
             </dd>
 
         </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Supprimer" class="btn btn-default" style="color:orangered;" /> |
+                @Html.ActionLink("Retour à la liste", "listContact")
+            </div>
+        }
     </div>
-    <p>
-        <button style="color:orangered;"> @Html.ActionLink("Edit", "Edit", new { id = Model.id_msg })</button> 
-        @Html.ActionLink("Retour à la liste", "Index")
-    </p>
-    </div>
+</div>
+
 

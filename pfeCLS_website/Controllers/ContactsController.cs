@@ -12,29 +12,29 @@ namespace pfeCLS_website.Controllers
 {
     public class ContactsController : Controller
     {
-        private webCLSEntities6 db = new webCLSEntities6();
+        public webCLSEntities6 db = new webCLSEntities6();
 
-        // GET: Contacts
-        [Authorize]
-        public ActionResult Index()
-        {
-            return View(db.Contacts.ToList());
-        }
+        //// GET: Contacts
+        //[Authorize]
+        //public ActionResult Index()
+        //{
+        //    return View(db.Contacts.ToList());
+        //}
 
-        // GET: Contacts/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
-            {
-                return HttpNotFound();
-            }
-            return View(contact);
-        }
+        //// GET: Contacts/Details/5
+        //public ActionResult Details(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Contact contact = db.Contacts.Find(id);
+        //    if (contact == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(contact);
+        //}
 
         // GET: Contacts/Create
         public ActionResult Create()
@@ -69,72 +69,72 @@ namespace pfeCLS_website.Controllers
      
         }
 
-        [Authorize]
-        // GET: Contacts/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
-            {
-                return HttpNotFound();
-            }
-            return View(contact);
-        }
+        //[Authorize]
+        //// GET: Contacts/Edit/5
+        //public ActionResult Edit(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Contact contact = db.Contacts.Find(id);
+        //    if (contact == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(contact);
+        //}
 
-        // POST: Contacts/Edit/5
-        //To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_msg,Nom_msg,Email_msg,Objet_msg,Message_msg")] Contact contact)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(contact).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(contact);
-        }
-        [Authorize]
-        // GET: Contacts/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
-            {
-                return HttpNotFound();
-            }
-            return View(contact);
-        }
-        [Authorize]
-        //POST: Contacts/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Contact contact = db.Contacts.Find(id);
-            db.Contacts.Remove(contact);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //// POST: Contacts/Edit/5
+        ////To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        //[Authorize]
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit([Bind(Include = "id_msg,Nom_msg,Email_msg,Objet_msg,Message_msg")] Contact contact)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Entry(contact).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(contact);
+        //}
+        //[Authorize]
+        //// GET: Contacts/Delete/5
+        //public ActionResult Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Contact contact = db.Contacts.Find(id);
+        //    if (contact == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(contact);
+        //}
+        //[Authorize]
+        ////POST: Contacts/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(int id)
+        //{
+        //    Contact contact = db.Contacts.Find(id);
+        //    db.Contacts.Remove(contact);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }

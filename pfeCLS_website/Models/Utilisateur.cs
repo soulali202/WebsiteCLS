@@ -20,8 +20,9 @@ namespace pfeCLS_website.Models
         [Required(ErrorMessage = "Veuillez saisir votre nom.")]
         public string Nom_Uti { get; set; }
 
-        [Required(ErrorMessage = "Veuillez saisir votre mot de passe .")]
+        [Required(ErrorMessage = "Veuillez saisir votre mot de passe.")]
         public string motPasse { get; set; }
+
         public string Role { get; set; }
     }
 }

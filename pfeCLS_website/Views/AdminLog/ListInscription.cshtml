@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<pfeCLS_website.Models.Inscription>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "ListInscription";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
@@ -22,7 +22,7 @@
     <h2 style="color:blue;">LISTE DES PERSONNES INSCRITS</h2>
     <br /><br /><br />
     <p>
-        <button>@Html.ActionLink("Create New", "Create")</button>
+        <button>@Html.ActionLink("Creer un nouveau condidat", "CreateInscription")</button>
     </p>
     <br /><br /><br />
     <table class="table">
@@ -88,9 +88,9 @@
                     @Html.DisplayFor(modelItem => item.Branche.Nom_branche)
                 </td>
                 <td>
-                    <button> @Html.ActionLink("Edit", "Edit", new { id = item.id_part }) </button>
-                    <button> @Html.ActionLink("Details", "Details", new { id = item.id_part }) </button>
-                    <button> @Html.ActionLink("Delete", "Delete", new { id = item.id_part })</button>
+                    <button> @Html.ActionLink("Modifier", "EditInscription", new { id = item.id_part }) </button>
+                    <button> @Html.ActionLink("Details", "DetailsInscription", new { id = item.id_part }) </button>
+                    <button> @Html.ActionLink("Supprimer", "DeleteInscription", new { id = item.id_part })</button>
                 </td>
             </tr>
         }

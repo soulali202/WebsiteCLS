@@ -17,8 +17,9 @@
     <link href=@Url.Content("/Content/assets/vendor/animate.css/animate.min.css") rel="stylesheet" />
     <link href=@Url.Content("/Content/assets/vendor/owl.carousel/assets/owl.carousel.min.css") rel="stylesheet" />
     <link href=@Url.Content("/Content/assets/vendor/venobox/venobox.css") rel="stylesheet" />
-
+    <link href=@Url.Content("/Content/aos/aos.css") rel="stylesheet" />
     <link href=@Url.Content("/Content/CLS.css") rel="stylesheet" />
+
 </head>
 <body>
 
@@ -34,7 +35,7 @@
                 <a href="https://web.facebook.com/Centre-de-Langues-Ichbilia-107566130775605" class="facebook"><i class="icofont-facebook"></i></a>
                 <a href="https://www.instagram.com/centre_ichbilia/" class="instagram"><i class="icofont-instagram"></i></a>
                 <a href="https://www.linkedin.com/in/centre-cls-a36655194/?originalSubdomain=ma" class="linkedin"><i class="icofont-linkedin"></i></a>
-                <a href="@Url.Action("Login","AdminLog")"><i class="icofont-key-hole"></i></a>
+                <a href="@Url.Action("Login", "AdminLog")"><i class="icofont-key-hole"></i></a>
             </div>
         </div>
     </section>
@@ -148,9 +149,12 @@
     <script src=@Url.Content("/Content/assets/vendor/isotope-layout/isotope.pkgd.min.js")></script>
     <script src=@Url.Content("/Content/assets/vendor/venobox/venobox.min.js")></script>
     <script src=@Url.Content("/Content/assets/js/main.js")></script>
+
+    <script src=@Url.Content("/Content/aos/aos.js")></script>
+
     
     @*@Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)*@
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)*@
 </body>
 </html>

@@ -1,7 +1,7 @@
 ﻿@model pfeCLS_website.Models.Inscription
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "DetailsInscription";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
@@ -95,7 +95,7 @@
         </dl>
     </div>
     <p>
-        <button>@Html.ActionLink("Edit", "Edit", new { id = Model.id_part }) </button>
-        @Html.ActionLink("Back to List", "Index")
+        <button>@Html.ActionLink("Modifier", "EditInscription", new { id = Model.id_part }) </button>
+        @Html.ActionLink("Retour a la liste", "ListInscription")
     </p>
     </div>

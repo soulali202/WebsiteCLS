@@ -1,9 +1,10 @@
 ﻿@model IEnumerable<pfeCLS_website.Models.Contact>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "listContact";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
+
 <style>
 
     body .listB {
@@ -14,14 +15,13 @@
         body .listB table th {
             background-color: #ffe0cc;
         }
-
 </style>
 <div class="listB">
     <h2 style="color:#ff8000;">LISTE DES MESSAGES :</h2>
     <br /><br /><br />
     @*<p>
-        <button>@Html.ActionLink("Create New", "CreateByAdmin")</button>
-    </p>*@
+            <button>@Html.ActionLink("Create New", "CreateByAdmin")</button>
+        </p>*@
     <br /><br />
     <table class="table" border="1">
         <tr>
@@ -60,13 +60,13 @@
                     @Html.DisplayFor(modelItem => item.Message_msg)
                 </td>
                 <td>
-                    <button class="buE"> @Html.ActionLink("Edit", "Edit", new { id = item.id_msg }) </button> 
-                    <button class="buDet">  @Html.ActionLink("Details", "Details", new { id = item.id_msg }) </button>
-                    <button class="buDel">    @Html.ActionLink("Delete", "Delete", new { id = item.id_msg })</button>
+                    <button class="buE"> @Html.ActionLink("Modifier", "EditContact", new { id = item.id_msg }) </button>
+                    <button class="buDet">  @Html.ActionLink("Details", "DetailsContact", new { id = item.id_msg }) </button>
+                    <button class="buDel">    @Html.ActionLink("Supprimer", "DeleteContact", new { id = item.id_msg })</button>
                 </td>
             </tr>
         }
 
     </table>
-    </div>
+</div>
 

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DbUtilisateursStoreContainer" CdmEntityContainer="webCLSEntities8">
+    <EntitySetMapping Name="Utilisateurs">
+      <EntityTypeMapping TypeName="DbUtilisateurs.Utilisateur">
+        <MappingFragment StoreEntitySet="Utilisateur">
+          <ScalarProperty Name="id_Uti" ColumnName="id_Uti" />
+          <ScalarProperty Name="Nom_Uti" ColumnName="Nom_Uti" />
+          <ScalarProperty Name="motPasse" ColumnName="motPasse" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
