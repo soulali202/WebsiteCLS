@@ -69,9 +69,10 @@ namespace pfeCLS_website.Controllers
         /// CONTACTS OPERATIONS : 
           // GET: Contacts
         [Authorize]
-        public ActionResult ListContact()
+        public ActionResult ListContact(string searching)
         {
-            return View(db.Contacts.ToList());
+            return View(db.Contacts.Where(c => c.Nom_msg.Contains(searching) || searching == null).ToList());
+            //return View(db.Contacts.ToList());
         }
         [Authorize]
 
@@ -161,10 +162,11 @@ namespace pfeCLS_website.Controllers
         // INSCRIPTION OPERATION :
         [Authorize]
         // GET: Inscriptions
-        public ActionResult ListInscription()
+        public ActionResult ListInscription(string searching)
         {
             var inscriptions = dbI.Inscriptions.Include(i => i.Branche);
-            return View(inscriptions.ToList());
+            return View(dbI.Inscriptions.Where(I => I.Nom_part.Contains(searching) || searching == null).ToList());
+            //return View(inscriptions.ToList());
         }
         [Authorize]
         // GET: Inscriptions/Details/5

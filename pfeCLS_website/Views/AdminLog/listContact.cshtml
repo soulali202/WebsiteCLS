@@ -19,6 +19,10 @@
 <div class="listB">
     <h2 style="color:#ff8000;">LISTE DES MESSAGES :</h2>
     <br /><br /><br />
+    @using (Html.BeginForm("ListContact", "AdminLog", FormMethod.Get))
+    {
+        @Html.TextBox("searching")<input type="submit" value="Chercher" />
+    }
     @*<p>
             <button>@Html.ActionLink("Create New", "CreateByAdmin")</button>
         </p>*@
@@ -65,7 +69,7 @@
                     <button class="buDel">    @Html.ActionLink("Supprimer", "DeleteContact", new { id = item.id_msg })</button>
                 </td>
             </tr>
-        }
+            }
 
     </table>
 </div>

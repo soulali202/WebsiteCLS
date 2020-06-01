@@ -24,34 +24,48 @@
     <p>
         <button>@Html.ActionLink("Creer un nouveau condidat", "CreateInscription")</button>
     </p>
-    <br /><br /><br />
+    <br />
+    @using (Html.BeginForm("ListInscription", "AdminLog", FormMethod.Get))
+    {
+        @Html.TextBox("searching")<input type="submit" value="Chercher" />
+    }
+    <br /><br />
     <table class="table">
         <tr>
-            <th>Nom
+            <th>
+                Nom
                 @*@Html.DisplayNameFor(model => model.Nom_part)*@
             </th>
-            <th>Prenom
+            <th>
+                Prenom
                 @*@Html.DisplayNameFor(model => model.Prenom_part)*@
             </th>
-            <th>Age
+            <th>
+                Age
                 @*@Html.DisplayNameFor(model => model.Age_part)*@
             </th>
-            <th>Email
+            <th>
+                Email
                 @*@Html.DisplayNameFor(model => model.Email_part)*@
             </th>
-            <th>Profil
+            <th>
+                Profil
                 @*@Html.DisplayNameFor(model => model.Profil_part)*@
             </th>
-            <th>Adresse
+            <th>
+                Adresse
                 @*@Html.DisplayNameFor(model => model.Adresse_part)*@
             </th>
-            <th>Telephone
+            <th>
+                Telephone
                 @*@Html.DisplayNameFor(model => model.Tele_part)*@
             </th>
-            <th>Date d'inscription
+            <th>
+                Date d'inscription
                 @*@Html.DisplayNameFor(model => model.Date_Inscr)*@
             </th>
-            <th>Branche
+            <th>
+                Branche
                 @*@Html.DisplayNameFor(model => model.Branche.Nom_branche)*@
             </th>
             <th></th>
