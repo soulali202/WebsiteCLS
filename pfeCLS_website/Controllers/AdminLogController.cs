@@ -148,7 +148,7 @@ namespace pfeCLS_website.Controllers
             Contact contact = db.Contacts.Find(id);
             db.Contacts.Remove(contact);
             db.SaveChanges();
-            return RedirectToAction("ListContacts");
+            return RedirectToAction("ListContact");
         }
 
         //protected override void Dispose(bool disposing)

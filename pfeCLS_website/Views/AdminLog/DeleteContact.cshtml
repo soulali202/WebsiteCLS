@@ -4,70 +4,84 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="icofont-ui-delete"></i>Supprimer Message</h3>
+                <ol class="breadcrumb">
+                    <li><i class="icofont-home"></i><a href="@Url.Action("index","AdminLog")">Accueil</a></li>
+                    <li>Message</li>
 
-<style>
-    .deleteB {
-        padding-left: 25%;
-        padding-top: 15%;
-    }
-</style>
-
-<div class="deleteB">
-    <h2 style="color:#ff8000;">SUPPRIMER : </h2>
-
-    <h3>Voulez-vous vraiment supprimer ?</h3>
-    <div>
-
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                Nom :
-                @*@Html.DisplayNameFor(model => model.Nom_msg)*@
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Nom_msg)
-            </dd>
-
-            <dt>
-                Email :
-                @*@Html.DisplayNameFor(model => model.Email_msg)*@
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Email_msg)
-            </dd>
-
-            <dt>
-                Objet :
-                @*@Html.DisplayNameFor(model => model.Objet_msg)*@
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Objet_msg)
-            </dd>
-
-            <dt>
-                Message :
-                @*@Html.DisplayNameFor(model => model.Message_msg)*@
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Message_msg)
-            </dd>
-
-        </dl>
-
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
-
-            <div class="form-actions no-color">
-                <input type="submit" value="Supprimer" class="btn btn-default" style="color:orangered;" /> |
-                @Html.ActionLink("Retour à la liste", "listContact")
+                </ol>
             </div>
-        }
-    </div>
-</div>
+        </div>
+        <!-- Form validations -->
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Voullez-vous vraiment supprime ce message ?
+                    </header>
+                    <div class="panel-body">
+                        <div class="form">
+                            <hr />
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    Nom :
+                                    @*@Html.DisplayNameFor(model => model.Nom_msg)*@
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Nom_msg)
+                                </dd>
+
+                                <dt>
+                                    Email :
+                                    @*@Html.DisplayNameFor(model => model.Email_msg)*@
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Email_msg)
+                                </dd>
+
+                                <dt>
+                                    Objet :
+                                    @*@Html.DisplayNameFor(model => model.Objet_msg)*@
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Objet_msg)
+                                </dd>
+
+                                <dt>
+                                    Message :
+                                    @*@Html.DisplayNameFor(model => model.Message_msg)*@
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Message_msg)
+                                </dd>
+
+                            </dl>
+
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-actions no-color">
+                                    <input type="submit" value="Supprimer" class="btn btn-default" style="color:orangered;" /> |
+                                    <i class="icofont-reply"></i>@Html.ActionLink("Retour à la liste", "listContact")
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </section>
+
+                <br /><br /><br /><br />
+            </div>
+        </div>
+    </section>
+</section>
 
 

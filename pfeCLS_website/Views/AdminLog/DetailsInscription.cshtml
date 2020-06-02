@@ -5,97 +5,114 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<style>
-    .detailB {
-        padding-left: 25%;
-        padding-top: 15%;
-    }
-</style>
-<div class="detailB">
-    <h2 style="color:blue;">
-        DETAILS :
-    </h2>
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"> <i class="icofont-spinner"></i>Details D'inscription</h3>
+                <ol class="breadcrumb">
+                    <li><i class="icofont-home"></i><a href="@Url.Action("index","AdminLog")">Accueil</a></li>
+                    <li>Inscription</li>
 
-    <div>
-        <h4>Inscription</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Nom_part)
-            </dt>
+                </ol>
+            </div>
+        </div>
+        <!-- Form validations -->
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Formulaire d'inscription :
+                    </header>
+                    <div class="panel-body">
+                        <div class="form">
+                            <hr />
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Nom_part)
+                                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Nom_part)
-            </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Nom_part)
+                                </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Prenom_part)
-            </dt>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Prenom_part)
+                                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Prenom_part)
-            </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Prenom_part)
+                                </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Age_part)
-            </dt>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Age_part)
+                                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Age_part)
-            </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Age_part)
+                                </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Email_part)
-            </dt>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Email_part)
+                                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Email_part)
-            </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Email_part)
+                                </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Profil_part)
-            </dt>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Profil_part)
+                                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Profil_part)
-            </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Profil_part)
+                                </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Adresse_part)
-            </dt>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Adresse_part)
+                                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Adresse_part)
-            </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Adresse_part)
+                                </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Tele_part)
-            </dt>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Tele_part)
+                                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Tele_part)
-            </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Tele_part)
+                                </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Date_Inscr)
-            </dt>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Date_Inscr)
+                                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Date_Inscr)
-            </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Date_Inscr)
+                                </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Branche.Nom_branche)
-            </dt>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Branche.Nom_branche)
+                                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Branche.Nom_branche)
-            </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Branche.Nom_branche)
+                                </dd>
 
-        </dl>
-    </div>
-    <p>
-        <button>@Html.ActionLink("Modifier", "EditInscription", new { id = Model.id_part }) </button>
-        @Html.ActionLink("Retour a la liste", "ListInscription")
-    </p>
-    </div>
+                            </dl>
+                            <div>
+                                <button>@Html.ActionLink("Modifier", "EditInscription", new { id = Model.id_part }) </button> |
+                                <i class="icofont-reply"></i>@Html.ActionLink("Retour a la liste", "ListInscription")
+                            </div>
+                        </div>
+                    </div>
+              
+                </section>
+          
+                <br /><br /><br /><br />
+            </div>
+        </div>
+    </section>
+</section>
+

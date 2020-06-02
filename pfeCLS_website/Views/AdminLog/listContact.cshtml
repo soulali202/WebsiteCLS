@@ -5,72 +5,88 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<style>
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="icofont-ui-messaging"></i>Messages :</h3>
+                <ol class="breadcrumb">
+                    <li><i class="icofont-home"></i><a href="@Url.Action("index","AdminLog")">Accueil</a></li>
+                    <li>Messages </li>
 
-    body .listB {
-        padding-left: 20%;
-        padding-top: 15%;
-    }
+                 
 
-        body .listB table th {
-            background-color: #ffe0cc;
-        }
-</style>
-<div class="listB">
-    <h2 style="color:#ff8000;">LISTE DES MESSAGES :</h2>
-    <br /><br /><br />
-    @using (Html.BeginForm("ListContact", "AdminLog", FormMethod.Get))
-    {
-        @Html.TextBox("searching")<input type="submit" value="Chercher" />
-    }
-    @*<p>
-            <button>@Html.ActionLink("Create New", "CreateByAdmin")</button>
-        </p>*@
-    <br /><br />
-    <table class="table" border="1">
-        <tr>
-            <th>
-                Nom
-                @*@Html.DisplayNameFor(model => model.Nom_msg)*@
-            </th>
-            <th>
-                Email
-                @*@Html.DisplayNameFor(model => model.Email_msg)*@
-            </th>
-            <th>
-                Objet
-                @*@Html.DisplayNameFor(model => model.Objet_msg)*@
-            </th>
-            <th>
-                Message
-                @*@Html.DisplayNameFor(model => model.Message_msg)*@
-            </th>
-            <th></th>
-        </tr>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nom_msg)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email_msg)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Objet_msg)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Message_msg)
-                </td>
-                <td>
-                    <button class="buE"> @Html.ActionLink("Modifier", "EditContact", new { id = item.id_msg }) </button>
-                    <button class="buDet">  @Html.ActionLink("Details", "DetailsContact", new { id = item.id_msg }) </button>
-                    <button class="buDel">    @Html.ActionLink("Supprimer", "DeleteContact", new { id = item.id_msg })</button>
-                </td>
-            </tr>
-            }
+                </ol>
+            </div>
+        </div>
+        <!-- Form validations -->
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Liste Des Messages :
+                    </header>
+                    <div class="panel-body">
+                        <div class="form">
+                            @using (Html.BeginForm("ListContact", "AdminLog", FormMethod.Get))
+                            {
+                                @Html.TextBox("searching")<button><i class="icofont-search-2"></i></button>
+                            }
+                            @*<p>
+                                    <button>@Html.ActionLink("Create New", "CreateByAdmin")</button>
+                                </p>*@
+                            <br /><br />
+                            <table class="table" border="1">
+                                <tr>
+                                    <th>
+                                        Nom
+                                        @*@Html.DisplayNameFor(model => model.Nom_msg)*@
+                                    </th>
+                                    <th>
+                                        Email
+                                        @*@Html.DisplayNameFor(model => model.Email_msg)*@
+                                    </th>
+                                    <th>
+                                        Objet
+                                        @*@Html.DisplayNameFor(model => model.Objet_msg)*@
+                                    </th>
+                                    <th>
+                                        Message
+                                        @*@Html.DisplayNameFor(model => model.Message_msg)*@
+                                    </th>
+                                    <th></th>
+                                </tr>
 
-    </table>
-</div>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Nom_msg)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Email_msg)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Objet_msg)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Message_msg)
+                                        </td>
+                                        <td>
+                                            @*<button class="buE"> @Html.ActionLink("Modifier", "EditContact", new { id = item.id_msg }) </button>*@
+                                            <i class="icofont-spinner"></i>@Html.ActionLink("Details", "DetailsContact", new { id = item.id_msg }) |
+                                            <i class="icofont-ui-delete"></i>@Html.ActionLink("Supprimer", "DeleteContact", new { id = item.id_msg })
+                                        </td>
+                                    </tr>
+                                }
+
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+</section>
 

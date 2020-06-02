@@ -5,60 +5,78 @@
 }
 
 
-<style>
-    .detailB {
-        padding-left: 25%;
-        padding-top: 15%;
-    }
-</style>
-<div class="detailB">
-    <h2 style="color:#ff8000">DETAILS : </h2>
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="icofont-spinner"></i>Details De Message</h3>
+                <ol class="breadcrumb">
+                    <li><i class="icofont-home"></i><a href="@Url.Action("index","AdminLog")">Accueil</a></li>
+                    <li>Messages</li>
 
-    <div>
+                </ol>
+            </div>
+        </div>
+        <!-- Form validations -->
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Details De Message :
+                    </header>
+                    <div class="panel-body">
+                        <div class="form">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    Nom :
+                                    @*@Html.DisplayNameFor(model => model.Nom_msg)*@
+                                </dt>
 
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                Nom :
-                @*@Html.DisplayNameFor(model => model.Nom_msg)*@
-            </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Nom_msg)
+                                </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Nom_msg)
-            </dd>
+                                <dt>
+                                    Email :
+                                    @*@Html.DisplayNameFor(model => model.Email_msg)*@
+                                </dt>
 
-            <dt>
-                Email :
-                @*@Html.DisplayNameFor(model => model.Email_msg)*@
-            </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Email_msg)
+                                </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Email_msg)
-            </dd>
+                                <dt>
+                                    Objet :
+                                    @*@Html.DisplayNameFor(model => model.Objet_msg)*@
+                                </dt>
 
-            <dt>
-                Objet :
-                @*@Html.DisplayNameFor(model => model.Objet_msg)*@
-            </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Objet_msg)
+                                </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Objet_msg)
-            </dd>
+                                <dt>
+                                    Message :
+                                    @*@Html.DisplayNameFor(model => model.Message_msg)*@
+                                </dt>
 
-            <dt>
-                Message :
-                @*@Html.DisplayNameFor(model => model.Message_msg)*@
-            </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Message_msg)
+                                </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Message_msg)
-            </dd>
+                            </dl>
+                            <div>
+                                @*<button style="color:orangered;"> @Html.ActionLink("Supprimer", "DeleteContact", new { id = item.id_msg })</button>*@
+                                <i class="icofont-reply"></i>@Html.ActionLink("Retour à la liste", "listContact")
 
-        </dl>
-    </div>
-    <p>
-        <button style="color:orangered;"> @Html.ActionLink("Modifier", "DetailsContact", new { id = Model.id_msg })</button>
-        @Html.ActionLink("Retour à la liste", "listContact")
-    </p>
-</div>
+                            </div>
+                      </div>
+                    </div>
+
+                </section>
+
+                <br /><br /><br /><br />
+            </div>
+        </div>
+    </section>
+</section>
 

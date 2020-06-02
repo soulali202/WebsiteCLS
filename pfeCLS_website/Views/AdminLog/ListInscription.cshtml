@@ -5,109 +5,121 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<style>
+ 
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header"><i class="icofont-group-students"></i>Liste Des Inscriptions </h3>
+                    <ol class="breadcrumb">
+                        <li><i class="icofont-home"></i><a href="@Url.Action("index","AdminLog")">Accueil</a></li>
+                        <li>Inscription</li>
+                        
+                        <li><i class="icofont-plus"></i>@*<button>*@@Html.ActionLink("Nouveau", "CreateInscription")@*</button>*@</li>
+                       
+                   
+                    </ol>
+                </div>
+            </div>
+            <!-- Form validations -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            Liste d'inscription :
+                        </header>
+                        <div class="panel-body">
+                            <div class="form">
+                                <br />
+                                @using (Html.BeginForm("ListInscription", "AdminLog", FormMethod.Get))
+                                {
+                                    @Html.TextBox("searching")<button><i class="icofont-search-2"></i></button>
+                                }
+                                <br /><br />
+                                <table class="table">
+                                    <tr>
+                                        <th>
+                                            Nom
+                                            @*@Html.DisplayNameFor(model => model.Nom_part)*@
+                                        </th>
+                                        <th>
+                                            Prenom
+                                            @*@Html.DisplayNameFor(model => model.Prenom_part)*@
+                                        </th>
+                                        <th>
+                                            Age
+                                            @*@Html.DisplayNameFor(model => model.Age_part)*@
+                                        </th>
+                                        <th>
+                                            Email
+                                            @*@Html.DisplayNameFor(model => model.Email_part)*@
+                                        </th>
+                                        <th>
+                                            Profil
+                                            @*@Html.DisplayNameFor(model => model.Profil_part)*@
+                                        </th>
+                                        <th>
+                                            Adresse
+                                            @*@Html.DisplayNameFor(model => model.Adresse_part)*@
+                                        </th>
+                                        <th>
+                                            Telephone
+                                            @*@Html.DisplayNameFor(model => model.Tele_part)*@
+                                        </th>
+                                        <th>
+                                            Date d'inscription
+                                            @*@Html.DisplayNameFor(model => model.Date_Inscr)*@
+                                        </th>
+                                        <th>
+                                            Branche
+                                            @*@Html.DisplayNameFor(model => model.Branche.Nom_branche)*@
+                                        </th>
+                                        <th></th>
+                                    </tr>
 
-    body .listB {
-        padding-left: 20%;
-        padding-top: 15%;
-    }
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Nom_part)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Prenom_part)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Age_part)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Email_part)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Profil_part)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Adresse_part)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Tele_part)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Date_Inscr)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Branche.Nom_branche)
+                                            </td>
+                                            <td>
+                                                <i class="icofont-repair"></i>@Html.ActionLink("Modifier", "EditInscription", new { id = item.id_part }) |
+                                                <i class="icofont-spinner"></i>@Html.ActionLink("Details", "DetailsInscription", new { id = item.id_part }) |
+                                                <i class="icofont-ui-delete"></i>@Html.ActionLink("Supprimer", "DeleteInscription", new { id = item.id_part })
+                                            </td>
+                                        </tr>
+                                    }
 
-        body .listB table th {
-            background-color: #ccccff;
-        }
-
-   
-</style>
-<div class="listB">
-    <h2 style="color:blue;">LISTE DES PERSONNES INSCRITS</h2>
-    <br /><br /><br />
-    <p>
-        <button>@Html.ActionLink("Creer un nouveau condidat", "CreateInscription")</button>
-    </p>
-    <br />
-    @using (Html.BeginForm("ListInscription", "AdminLog", FormMethod.Get))
-    {
-        @Html.TextBox("searching")<input type="submit" value="Chercher" />
-    }
-    <br /><br />
-    <table class="table">
-        <tr>
-            <th>
-                Nom
-                @*@Html.DisplayNameFor(model => model.Nom_part)*@
-            </th>
-            <th>
-                Prenom
-                @*@Html.DisplayNameFor(model => model.Prenom_part)*@
-            </th>
-            <th>
-                Age
-                @*@Html.DisplayNameFor(model => model.Age_part)*@
-            </th>
-            <th>
-                Email
-                @*@Html.DisplayNameFor(model => model.Email_part)*@
-            </th>
-            <th>
-                Profil
-                @*@Html.DisplayNameFor(model => model.Profil_part)*@
-            </th>
-            <th>
-                Adresse
-                @*@Html.DisplayNameFor(model => model.Adresse_part)*@
-            </th>
-            <th>
-                Telephone
-                @*@Html.DisplayNameFor(model => model.Tele_part)*@
-            </th>
-            <th>
-                Date d'inscription
-                @*@Html.DisplayNameFor(model => model.Date_Inscr)*@
-            </th>
-            <th>
-                Branche
-                @*@Html.DisplayNameFor(model => model.Branche.Nom_branche)*@
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nom_part)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Prenom_part)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Age_part)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email_part)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Profil_part)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Adresse_part)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Tele_part)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date_Inscr)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Branche.Nom_branche)
-                </td>
-                <td>
-                    <button> @Html.ActionLink("Modifier", "EditInscription", new { id = item.id_part }) </button>
-                    <button> @Html.ActionLink("Details", "DetailsInscription", new { id = item.id_part }) </button>
-                    <button> @Html.ActionLink("Supprimer", "DeleteInscription", new { id = item.id_part })</button>
-                </td>
-            </tr>
-        }
-
-    </table>
-</div>
+                                </table>
+                            </div>
+                        </div>
+                        </section>
+                </div>
+                </div>
+        </section>
+    </section>
