@@ -12,7 +12,7 @@ namespace pfeCLS_website.Controllers
 {
     public class ContactsController : Controller
     {
-        public webCLSEntities6 db = new webCLSEntities6();
+        private DbContacts db = new DbContacts();
 
         //// GET: Contacts
         //[Authorize]

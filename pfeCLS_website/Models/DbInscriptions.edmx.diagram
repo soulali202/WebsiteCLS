@@ -4,10 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d704aec3efb04c78a8addd7274350e2b" Name="Diagram1">
-        <EntityTypeShape EntityType="webCLSModel1.Branche" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="webCLSModel1.Inscription" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="webCLSModel1.FK__Inscripti__ID_br__1367E606" ManuallyRouted="false" />
+      <Diagram DiagramId="89d952e6b52e47dc92d8674f5c230fb5" Name="Diagram1">
+        <EntityTypeShape EntityType="webCLSModel2.Branche" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="webCLSModel2.Inscription" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="webCLSModel2.FK__Inscripti__ID_br__1367E606" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

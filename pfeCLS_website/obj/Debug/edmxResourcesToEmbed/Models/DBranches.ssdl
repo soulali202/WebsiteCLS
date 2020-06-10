@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="webCLSModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Branche">
+    <Key>
+      <PropertyRef Name="ID_branche" />
+    </Key>
+    <Property Name="ID_branche" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom_branche" Type="varchar" MaxLength="100" />
+    <Property Name="prix_branche" Type="money" />
+    <Property Name="frais_inscri" Type="money" />
+    <Property Name="id_Niv" Type="int" />
+  </EntityType>
+  <EntityType Name="Niveaux">
+    <Key>
+      <PropertyRef Name="id_Niv" />
+    </Key>
+    <Property Name="id_Niv" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom_Niv" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <Association Name="FK__Branche__id_Niv__5CD6CB2B">
+    <End Role="Niveaux" Type="Self.Niveaux" Multiplicity="0..1" />
+    <End Role="Branche" Type="Self.Branche" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Niveaux">
+        <PropertyRef Name="id_Niv" />
+      </Principal>
+      <Dependent Role="Branche">
+        <PropertyRef Name="id_Niv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="webCLSModel1StoreContainer">
+    <EntitySet Name="Branche" EntityType="Self.Branche" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Niveaux" EntityType="Self.Niveaux" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Branche__id_Niv__5CD6CB2B" Association="Self.FK__Branche__id_Niv__5CD6CB2B">
+      <End Role="Niveaux" EntitySet="Niveaux" />
+      <End Role="Branche" EntitySet="Branche" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

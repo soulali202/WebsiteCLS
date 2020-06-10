@@ -1,0 +1,70 @@
+﻿@model pfeCLS_website.Models.Branche
+
+@{
+    ViewBag.Title = "DetailsBr";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"> <i class="icofont-spinner"></i>Details De branche</h3>
+                <ol class="breadcrumb">
+                    <li><i class="icofont-home"></i><a href="@Url.Action("DetailsBr","AdminLog")">Accueil</a></li>
+                    <li>Branche</li>
+
+                </ol>
+            </div>
+        </div>
+        <!-- Form validations -->
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Details :
+                    </header>
+                    <div class="panel-body">
+                        <div class="form">
+                            <hr />
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @*@Html.DisplayNameFor(model => model.Nom_branche)*@
+                                    Nom :
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Nom_branche)
+                                </dd>
+                                <dt>
+                                    @*@Html.DisplayNameFor(model => model.Nom_branche)*@
+                                    Prix :
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.prix_branche)
+                                </dd>
+                                <dt>
+                                    @*@Html.DisplayNameFor(model => model.Nom_branche)*@
+                                    Frais :
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.frais_inscri)
+                                </dd>
+
+                            </dl>
+                            <div>
+                                <button>@Html.ActionLink("Details", "EditBr", new { id = Model.ID_branche })</button>   |
+                                <i class="icofont-reply"></i>@Html.ActionLink("Back to List", "ListBranches")
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <br /><br /><br /><br />
+            </div>
+        </div>
+    </section>
+</section>

@@ -33,7 +33,7 @@
           <Property Name="Objet_msg" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Message_msg" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="webCLSEntities6" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DbContacts" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Contacts" EntityType="Self.Contact" />
         </EntityContainer>
       </Schema>
@@ -41,7 +41,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="webCLSModelStoreContainer" CdmEntityContainer="webCLSEntities6">
+        <EntityContainerMapping StorageEntityContainer="webCLSModelStoreContainer" CdmEntityContainer="DbContacts">
           <EntitySetMapping Name="Contacts">
             <EntityTypeMapping TypeName="webCLSModel.Contact">
               <MappingFragment StoreEntitySet="Contact">

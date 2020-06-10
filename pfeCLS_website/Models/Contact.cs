@@ -16,12 +16,18 @@ namespace pfeCLS_website.Models
     public partial class Contact
     {
         public int id_msg { get; set; }
-        [Required(ErrorMessage = "Veuillez saisir votre nom.")]
+
+        [Required(ErrorMessage = "Saisir votre Nom.")]
         public string Nom_msg { get; set; }
+
+        [Required(ErrorMessage = "Saisir votre email.")]
+        [DataType(DataType.EmailAddress, ErrorMessage = "E-mail non valide")]
         public string Email_msg { get; set; }
-        [Required(ErrorMessage = "Veuillez saisir un objet.")]
+
+        [Required(ErrorMessage = "Saisir un objet.")]
         public string Objet_msg { get; set; }
-        [Required(ErrorMessage = "Veuillez saisir votre message.")]
+
+        [Required(ErrorMessage = "Saisir un message.")]
         public string Message_msg { get; set; }
     }
 }

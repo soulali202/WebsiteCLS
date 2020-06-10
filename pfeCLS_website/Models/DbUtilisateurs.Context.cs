@@ -13,10 +13,10 @@ namespace pfeCLS_website.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class webCLSEntities8 : DbContext
+    public partial class DbUtilisateurs : DbContext
     {
-        public webCLSEntities8()
-            : base("name=webCLSEntities8")
+        public DbUtilisateurs()
+            : base("name=DbUtilisateurs")
         {
         }
     

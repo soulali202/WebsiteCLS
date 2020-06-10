@@ -1,0 +1,79 @@
+﻿@model IEnumerable<pfeCLS_website.Models.Branche>
+
+@{
+    ViewBag.Title = "ListBranches";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="icofont-book-alt"></i>Liste Des Branches </h3>
+                <ol class="breadcrumb">
+                    <li><i class="icofont-home"></i><a href="@Url.Action("index","AdminLog")">Accueil</a></li>
+                    <li>Branches</li>
+
+                    <li><i class="icofont-plus"></i>@*<button>*@@Html.ActionLink("Nouveau", "CreateBr")@*</button>*@</li>
+
+
+                </ol>
+            </div>
+        </div>
+        <!-- Form validations -->
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Liste Des Branches :
+                    </header>
+                    <div class="panel-body">
+                        <div class="form">
+                            <br />
+                            @using (Html.BeginForm("ListBranches", "AdminLog", FormMethod.Get))
+                            {
+                                @Html.TextBox("searching")<button><i class="icofont-search-2"></i></button>
+                            }
+                            <br /><br />
+                            <table class="table">
+                                <tr>
+                                    <th>
+                                        Branches
+                                        @*@Html.DisplayNameFor(model => model.Nom_branche)*@
+                                    </th>
+                                    <th>
+                                        Prix 
+                                    </th>
+                                    <th>
+                                        Frais 
+                                    </th>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Nom_branche)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.prix_branche)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.frais_inscri)
+                                    </td>
+                                    <td>
+                                        <i class="icofont-repair"></i>@Html.ActionLink("Modifier", "EditBr", new { id = item.ID_branche }) |
+                                        <i class="icofont-spinner"></i>@Html.ActionLink("Details", "DetailsBr", new { id = item.ID_branche }) |
+                                        <i class="icofont-ui-delete"></i>@Html.ActionLink("Supprimer", "DeleteBr", new { id = item.ID_branche })
+                                    </td>
+                                </tr>
+                                }
+
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+</section>

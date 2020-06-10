@@ -16,34 +16,30 @@ namespace pfeCLS_website.Models
     public partial class Inscription
     {
         public int id_part { get; set; }
+        [Required(ErrorMessage = "Saisir votre Nom.")]
 
-        [Required(ErrorMessage = "Veuillez saisir votre nom.")]
         public string Nom_part { get; set; }
+        [Required(ErrorMessage = "Saisir votre prenom.")]
 
-        [Required(ErrorMessage = "Veuillez saisir votre prenom.")]
         public string Prenom_part { get; set; }
+        [Required(ErrorMessage = "Saisir votre age.")]
+
         public Nullable<int> Age_part { get; set; }
-
-        [Display(Name = "Email Address")]
-        [EmailAddress]
-        [RegularExpression("^[_A-Za-z'`+-.]+([_A-Za-z0-9'+-.]+)*@([A-Za-z0-9-])+(\\.[A-Za-z0-9]+)*(\\.([A-Za-z]*){3,})$", ErrorMessage = "Saisissez l'adresse e-mail appropriée")]
-        [Required(ErrorMessage = "non approprié de l'adresse e-mail.")]
-        //[DataType(DataType.EmailAddress, ErrorMessage = "non approprié de l'adresse e-mail")]
-
+        [Required(ErrorMessage = "Saisir votre email.")]
+        [DataType(DataType.EmailAddress, ErrorMessage = "E-mail non valide")]
         public string Email_part { get; set; }
+        [Required(ErrorMessage = "Saisir votre profil.")]
 
-        [Required(ErrorMessage = "Veuillez saisir votre profil.")]
         public string Profil_part { get; set; }
+        [Required(ErrorMessage = "Saisir votre adresse.")]
 
-        [Required(ErrorMessage = "Veuillez saisir votre adresse.")]
         public string Adresse_part { get; set; }
+        [Required(ErrorMessage = "Saisir votre numero.")]
 
-        [Required(ErrorMessage = "Veuillez saisir votre telephone.")]
         public string Tele_part { get; set; }
-
         public Nullable<System.DateTime> Date_Inscr { get; set; }
 
-     
+       
         public Nullable<int> ID_branche { get; set; }
     
         public virtual Branche Branche { get; set; }

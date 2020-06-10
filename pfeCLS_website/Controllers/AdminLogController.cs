@@ -8,13 +8,16 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 
+
+
 namespace pfeCLS_website.Controllers
 {
     public class AdminLogController : Controller
     {
 
-        private webCLSEntities6 db = new webCLSEntities6();
+        private DbContacts db = new DbContacts();
         private DbInscriptions dbI = new DbInscriptions();
+        private DBranches dbR = new DBranches();
 
         // GET: IndexLog
         [Authorize]
@@ -35,7 +38,7 @@ namespace pfeCLS_website.Controllers
         {
             try
             {
-                webCLSEntities8 db = new webCLSEntities8();
+                DbUtilisateurs db = new DbUtilisateurs();
 
                 var dataItem = db.Utilisateurs.Where(x => x.Nom_Uti == model.Nom_Uti && x.motPasse == model.motPasse).First();
                 if (dataItem != null)
@@ -159,12 +162,12 @@ namespace pfeCLS_website.Controllers
         //    }
         //    base.Dispose(disposing);
         //}
-        // INSCRIPTION OPERATION :
+        // -----------------------------------------------------------------INSCRIPTION OPERATION :----------------------------------------------------------------
         [Authorize]
         // GET: Inscriptions
         public ActionResult ListInscription(string searching)
         {
-            var inscriptions = dbI.Inscriptions.Include(i => i.Branche);
+            var inscriptions = dbI.Branches.Include(i => i.Nom_branche);
             return View(dbI.Inscriptions.Where(I => I.Nom_part.Contains(searching) || searching == null).ToList());
             //return View(inscriptions.ToList());
         }
@@ -250,7 +253,7 @@ namespace pfeCLS_website.Controllers
             ViewBag.ID_branche = new SelectList(dbI.Branches, "ID_branche", "Nom_branche");
             return View();
         }
-
+        [Authorize]
         // POST: Inscriptions/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -280,6 +283,113 @@ namespace pfeCLS_website.Controllers
 
 ;
 
+        }
+        //-------------------------Branches :-------------------------------------------------------------------------------
+        [Authorize]
+        // GET: Branches
+        public ActionResult ListBranches(string searching)
+        {
+           
+            return View(dbR.Branches.Where(b=>b.Nom_branche.Contains(searching)||searching==null).ToList());
+        }
+ 
+
+        [Authorize]
+        // GET: Branches/Details/5
+        public ActionResult DetailsBr(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Branche branche = dbR.Branches.Find(id);
+            if (branche == null)
+            {
+                return HttpNotFound();
+            }
+            return View(branche);
+        }
+        [Authorize]
+        // GET: Branches/Create
+        public ActionResult CreateBr()
+        {
+          
+            return View();
+        }
+    
+        // POST: Branches/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateBr([Bind(Include = "ID_branche,Nom_branche,prix_branche,frais_inscri")] Branche branche)
+        {
+            if (ModelState.IsValid)
+            {
+                dbR.Branches.Add(branche);
+                dbR.SaveChanges();
+                return RedirectToAction("ListBranches");
+            }
+           
+            return View(branche);
+        }
+        [Authorize]
+        // GET: Branches/Edit/5
+        public ActionResult EditBr(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Branche branche = dbR.Branches.Find(id);
+            if (branche == null)
+            {
+                return HttpNotFound();
+            }
+            return View(branche);
+        }
+
+        // POST: Branches/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditBr([Bind(Include = "ID_branche,Nom_branche,prix_branche,frais_inscri")] Branche branche)
+        {
+            if (ModelState.IsValid)
+            {
+                dbR.Entry(branche).State = EntityState.Modified;
+                dbR.SaveChanges();
+                return RedirectToAction("ListBranches");
+            }
+        
+            return View(branche);
+        }
+        [Authorize]
+        // GET: Branches/Delete/5
+        public ActionResult DeleteBr(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Branche branche = dbR.Branches.Find(id);
+            if (branche == null)
+            {
+                return HttpNotFound();
+            }
+            return View(branche);
+        }
+        
+        // POST: Branches/Delete/5
+        [HttpPost, ActionName("DeleteBr")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmedBr(int id)
+        {
+            Branche branche = dbR.Branches.Find(id);
+            dbR.Branches.Remove(branche);
+            dbR.SaveChanges();
+            return RedirectToAction("ListBranches");
         }
         protected override void Dispose(bool disposing)
         {

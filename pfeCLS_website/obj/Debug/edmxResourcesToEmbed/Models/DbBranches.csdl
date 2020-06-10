@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="webCLSModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Branche">
+    <Key>
+      <PropertyRef Name="ID_branche" />
+    </Key>
+    <Property Name="ID_branche" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom_branche" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="prix_branche" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="frais_inscri" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityContainer Name="DBranches" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Branches" EntityType="Self.Branche" />
+  </EntityContainer>
+</Schema>

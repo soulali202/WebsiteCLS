@@ -73,7 +73,7 @@
                             <div class="form-group">
                                 <div class="col-md-10">
                                     @Html.EditorFor(model => model.Nom_msg, new { htmlAttributes = new { @class = "form-control", placeholder = "Nom" } })
-                                    @Html.ValidationMessageFor(model => model.Nom_msg, "*Champ obligatoire", new { @class = "text-danger" })
+                                    @Html.ValidationMessageFor(model => model.Nom_msg, "**", new { @class = "text-danger" })
 
                                 </div>
                             </div>
@@ -81,21 +81,21 @@
                             <div class="form-group">
                                 <div class="col-md-10">
                                     @Html.EditorFor(model => model.Email_msg, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
-                                    @Html.ValidationMessageFor(model => model.Email_msg, "*Champ obligatoire", new { @class = "text-danger" })
+                                    @Html.ValidationMessageFor(model => model.Email_msg, "**", new { @class = "text-danger" })
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="col-md-10">
                                     @Html.EditorFor(model => model.Objet_msg, new { htmlAttributes = new { @class = "form-control", placeholder = "Objet" } })
-                                    @Html.ValidationMessageFor(model => model.Objet_msg, "*Champ obligatoire", new { @class = "text-danger" })
+                                    @Html.ValidationMessageFor(model => model.Objet_msg, "**", new { @class = "text-danger" })
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="col-md-10">
                                     @Html.EditorFor(model => model.Message_msg, new { htmlAttributes = new { @class = "form-control", placeholder = "Message" } })
-                                    @Html.ValidationMessageFor(model => model.Message_msg, "*Champ obligatoire", new { @class = "text-danger" })
+                                    @Html.ValidationMessageFor(model => model.Message_msg, "**", new { @class = "text-danger" })
                                 </div>
                             </div>
 

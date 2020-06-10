@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DbUtilisateurs.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="webCLSModel3.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Utilisateur">
           <Key>
             <PropertyRef Name="id_Uti" />
@@ -14,14 +14,14 @@
           <Property Name="motPasse" Type="varchar" MaxLength="10" />
           <Property Name="Role" Type="varchar" MaxLength="10" />
         </EntityType>
-        <EntityContainer Name="DbUtilisateursStoreContainer">
+        <EntityContainer Name="webCLSModel3StoreContainer">
           <EntitySet Name="Utilisateur" EntityType="Self.Utilisateur" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DbUtilisateurs" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="webCLSModel3" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Utilisateur">
           <Key>
             <PropertyRef Name="id_Uti" />
@@ -31,7 +31,7 @@
           <Property Name="motPasse" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Role" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="webCLSEntities8" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DbUtilisateurs" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Utilisateurs" EntityType="Self.Utilisateur" />
         </EntityContainer>
       </Schema>
@@ -39,9 +39,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DbUtilisateursStoreContainer" CdmEntityContainer="webCLSEntities8">
+        <EntityContainerMapping StorageEntityContainer="webCLSModel3StoreContainer" CdmEntityContainer="DbUtilisateurs">
           <EntitySetMapping Name="Utilisateurs">
-            <EntityTypeMapping TypeName="DbUtilisateurs.Utilisateur">
+            <EntityTypeMapping TypeName="webCLSModel3.Utilisateur">
               <MappingFragment StoreEntitySet="Utilisateur">
                 <ScalarProperty Name="id_Uti" ColumnName="id_Uti" />
                 <ScalarProperty Name="Nom_Uti" ColumnName="Nom_Uti" />

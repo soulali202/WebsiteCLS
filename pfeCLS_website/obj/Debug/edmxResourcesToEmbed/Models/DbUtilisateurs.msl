@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DbUtilisateursStoreContainer" CdmEntityContainer="webCLSEntities8">
+  <EntityContainerMapping StorageEntityContainer="webCLSModel3StoreContainer" CdmEntityContainer="DbUtilisateurs">
     <EntitySetMapping Name="Utilisateurs">
-      <EntityTypeMapping TypeName="DbUtilisateurs.Utilisateur">
+      <EntityTypeMapping TypeName="webCLSModel3.Utilisateur">
         <MappingFragment StoreEntitySet="Utilisateur">
           <ScalarProperty Name="id_Uti" ColumnName="id_Uti" />
           <ScalarProperty Name="Nom_Uti" ColumnName="Nom_Uti" />

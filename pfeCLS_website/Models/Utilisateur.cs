@@ -16,13 +16,10 @@ namespace pfeCLS_website.Models
     public partial class Utilisateur
     {
         public int id_Uti { get; set; }
-
-        [Required(ErrorMessage = "Veuillez saisir votre nom.")]
+        [Required(ErrorMessage = "Saisir un nom valide.")]
         public string Nom_Uti { get; set; }
-
-        [Required(ErrorMessage = "Veuillez saisir votre mot de passe.")]
+        [Required(ErrorMessage = "Saisir un mot de passe valide.")]
         public string motPasse { get; set; }
-
         public string Role { get; set; }
     }
 }

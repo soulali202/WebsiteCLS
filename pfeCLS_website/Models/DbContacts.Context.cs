@@ -13,10 +13,10 @@ namespace pfeCLS_website.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class webCLSEntities6 : DbContext
+    public partial class DbContacts : DbContext
     {
-        public webCLSEntities6()
-            : base("name=webCLSEntities6")
+        public DbContacts()
+            : base("name=DbContacts")
         {
         }
     

@@ -46,7 +46,7 @@
                         </div>
 
                     </div>
-                    @Html.ValidationMessageFor(model => model.Nom_Uti, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.Nom_Uti, "**", new { @class = "text-danger" })
                     <div class="input-div pass">
                         <div class="i">
                             <i class="fas fa-lock"></i>
@@ -58,7 +58,7 @@
                         </div>
 
                     </div>
-                    @Html.ValidationMessageFor(model => model.motPasse, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.motPasse, "**", new { @class = "text-danger" })
 
 
                     <div class="form-group">

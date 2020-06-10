@@ -11,7 +11,8 @@ namespace pfeCLS_website.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Branche
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,7 +22,17 @@ namespace pfeCLS_website.Models
         }
     
         public int ID_branche { get; set; }
+
+        [Required(ErrorMessage = "Veuillez entrez le nom du branche.")]
+
         public string Nom_branche { get; set; }
+        [Required(ErrorMessage = "Veuillez entrez le prix du branche.")]
+        [RegularExpression("([1-9][0-9]*)")]
+        public Nullable<decimal> prix_branche { get; set; }
+
+        [Required(ErrorMessage = "Veuillez entrez les frais d'inscription pour cette branche.")]
+        [RegularExpression("([1-9][0-9]*)")]
+        public Nullable<decimal> frais_inscri { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Inscription> Inscriptions { get; set; }

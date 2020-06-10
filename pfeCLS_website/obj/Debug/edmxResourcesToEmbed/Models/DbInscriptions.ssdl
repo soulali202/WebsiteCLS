@@ -1,11 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="webCLSModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="webCLSModel2.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Branche">
     <Key>
       <PropertyRef Name="ID_branche" />
     </Key>
     <Property Name="ID_branche" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nom_branche" Type="varchar" MaxLength="100" />
+    <Property Name="prix_branche" Type="money" />
+    <Property Name="frais_inscri" Type="money" />
   </EntityType>
   <EntityType Name="Inscription">
     <Key>
@@ -34,7 +36,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="webCLSModel1StoreContainer">
+  <EntityContainer Name="webCLSModel2StoreContainer">
     <EntitySet Name="Branche" EntityType="Self.Branche" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Inscription" EntityType="Self.Inscription" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__Inscripti__ID_br__1367E606" Association="Self.FK__Inscripti__ID_br__1367E606">

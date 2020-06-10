@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="webCLSModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Branche">
+    <Key>
+      <PropertyRef Name="ID_branche" />
+    </Key>
+    <Property Name="ID_branche" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom_branche" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="prix_branche" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="frais_inscri" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="id_Niv" Type="Int32" />
+    <NavigationProperty Name="Niveau" Relationship="Self.FK__Branche__id_Niv__5CD6CB2B" FromRole="Branche" ToRole="Niveaux" />
+  </EntityType>
+  <EntityType Name="Niveau">
+    <Key>
+      <PropertyRef Name="id_Niv" />
+    </Key>
+    <Property Name="id_Niv" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom_Niv" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Branches" Relationship="Self.FK__Branche__id_Niv__5CD6CB2B" FromRole="Niveaux" ToRole="Branche" />
+  </EntityType>
+  <Association Name="FK__Branche__id_Niv__5CD6CB2B">
+    <End Role="Niveaux" Type="Self.Niveau" Multiplicity="0..1" />
+    <End Role="Branche" Type="Self.Branche" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Niveaux">
+        <PropertyRef Name="id_Niv" />
+      </Principal>
+      <Dependent Role="Branche">
+        <PropertyRef Name="id_Niv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBranches" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Branches" EntityType="Self.Branche" />
+    <EntitySet Name="Niveaux" EntityType="Self.Niveau" />
+    <AssociationSet Name="FK__Branche__id_Niv__5CD6CB2B" Association="Self.FK__Branche__id_Niv__5CD6CB2B">
+      <End Role="Niveaux" EntitySet="Niveaux" />
+      <End Role="Branche" EntitySet="Branches" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
