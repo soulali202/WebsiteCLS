@@ -1,0 +1,99 @@
+﻿@model pfeCLS_website.Models.Offre
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="icofont-repair"></i>MODIFIER UNE OFFRE</h3>
+                <ol class="breadcrumb">
+                    <li><i class="icofont-home"></i><a href="@Url.Action("EditOffr","AdminLog")">Accueil</a></li>
+                    <li>Offre</li>
+
+                </ol>
+            </div>
+        </div>
+        <!-- Form validations -->
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Formulaire de modification :
+                    </header>
+                    <div class="panel-body">
+                        <div class="form">
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-horizontal">
+                                    <h4>Offre</h4>
+                                    <hr />
+                                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                                    @Html.HiddenFor(model => model.Id_Off)
+
+                                    <div class="form-group">
+                                        <div class="col-md-10">
+                                            Titre :
+                                        </div>
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Tittre_Off, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Tittre_Off, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-10">
+                                            description :
+                                        </div>
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Descr_Off, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Descr_Off, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-10">
+                                            Image :
+                                        </div>
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Imag_Off, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Imag_Off, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-10">
+                                            Categorie :
+                                        </div>
+                                        <div class="col-md-10">
+                                            @Html.DropDownList("Id_Cat", null, htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Id_Cat, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="Enregistrer" class="btn btn-default" />
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </section>
+                <div>
+                    <i class="icofont-reply"></i> @Html.ActionLink("retournez à la page précédente", "ListOffr")
+                </div>
+                <br /><br /><br /><br />
+            </div>
+        </div>
+    </section>
+</section>
+

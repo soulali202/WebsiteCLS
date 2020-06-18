@@ -1,0 +1,58 @@
+﻿@model pfeCLS_website.Models.Categorie
+
+@{
+    ViewBag.Title = "DeleteCat";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="icofont-ui-delete"></i>SUPPRIMER CATEGORIE</h3>
+                <ol class="breadcrumb">
+                    <li><i class="icofont-home"></i><a href="@Url.Action("index","AdminLog")">Accueil</a></li>
+                    <li>Categorie</li>
+
+                </ol>
+            </div>
+        </div>
+        <!-- Form validations -->
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Voullez-vous vraiment supprime cette categorie ?
+                    </header>
+                    <div class="panel-body">
+                        <div class="form">
+                            <hr />
+                            <dl class="dl-horizontal">
+                                <dt>
+                                   Nom :
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Nom_Cat)
+                                </dd>
+
+                            </dl>
+
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                            <div class="form-actions no-color">
+                                <input type="submit" value="Supprimer" class="btn btn-default" /> |
+                                <i class="icofont-reply"></i>@Html.ActionLink("retournez à la page précédente", "ListCat")
+
+                            </div>
+                            }
+                        </div>
+                    </div>
+                </section>
+
+                <br /><br /><br /><br />
+            </div>
+        </div>
+    </section>
+</section>

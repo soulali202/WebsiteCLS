@@ -1,0 +1,78 @@
+﻿@model pfeCLS_website.Models.Utilisateur
+
+@{
+    ViewBag.Title = "CreateUtili";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="icofont-plus"></i>AJOUTER UN UTILISATEUR</h3>
+                <ol class="breadcrumb">
+                    <li><i class="icofont-home"></i><a href="@Url.Action("CreateUtili","AdminLog")">Accueil</a></i>
+                    <li>Utilisateur</li>
+
+                </ol>
+            </div>
+        </div>
+        <!-- Form validations -->
+        <div class="row">
+            <div class="col-lg-12">
+                @*<section class="panel" style="padding:20px 30%;">*@
+                <header class="panel-heading" style="padding:20px 30%;">
+               
+                    <i class="icofont-ui-unlock" style="color:mediumblue;font-size:500%;"></i>
+
+
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+
+                            <hr />
+                            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                            <div class="form-group">
+
+                                <div class="col-md-10" style="margin-left:15%;">
+                                    @Html.EditorFor(model => model.Nom_Uti, new { htmlAttributes = new { @class = "form-control", placeholder = "Nom" } })
+                                    @Html.ValidationMessageFor(model => model.Nom_Uti, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-10" style="margin-left:15%;">
+                                    @Html.EditorFor(model => model.motPasse, new { htmlAttributes = new { @class = "form-control", placeholder = "Mot de passe" } })
+                                    @Html.ValidationMessageFor(model => model.motPasse, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-10" style="margin-left:15%;">
+                                    @Html.EditorFor(model => model.Role, new { htmlAttributes = new { @class = "form-control", placeholder = "Role" } })
+                                    @Html.ValidationMessageFor(model => model.Role, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10" style="margin-left:45%; ">
+                                    <input type="submit" value="Ajouter" class="btn-primary" style="padding:5px 25px; border-radius:10px;background-color:mediumblue" />
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+                </header>
+                @*</section>*@
+                <div>
+                    <i class="icofont-reply"></i> @Html.ActionLink("Retournez à la page précédente", "ListUtili")
+                </div>
+                <br /><br /><br /><br />
+            </div>
+        </div>
+    </section>
+</section>

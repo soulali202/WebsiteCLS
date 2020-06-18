@@ -1,5 +1,4 @@
 @media (min-width: 980px) {
-
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
@@ -11,7 +10,6 @@
     .inbox-wrapper .inbox-right {
         width: 70%;
     }
-
 }
 
 @media (max-width: 768px) {
@@ -33,7 +31,7 @@
 
     /* body container */
     #main-content {
-        margin: 0px!important;
+        margin: 0px !important;
         position: none !important;
     }
 
@@ -44,60 +42,59 @@
     #sidebar > ul > li {
         margin: 0 10px 5px 10px;
     }
-    #sidebar > ul > li > a {
-        height:35px;
-        line-height:35px;
-        padding: 0 10px;
-        text-align: left;
-    }
-    #sidebar > ul > li > a i{
-        /*display: none !important;*/
-    }
+
+        #sidebar > ul > li > a {
+            height: 35px;
+            line-height: 35px;
+            padding: 0 10px;
+            text-align: left;
+        }
+
 
     .mail-info, .mail-info:hover {
         display: none !important;
     }
+
     #sidebar ul > li > a .arrow, #sidebar > ul > li > a .arrow.open {
         margin-right: 10px;
         margin-top: 15px;
     }
 
     #sidebar ul > li.active > a .arrow, #sidebar ul > li > a:hover .arrow, #sidebar ul > li > a:focus .arrow,
-    #sidebar > ul > li.active > a .arrow.open, #sidebar > ul > li > a:hover .arrow.open, #sidebar > ul > li > a:focus .arrow.open{
+    #sidebar > ul > li.active > a .arrow.open, #sidebar > ul > li > a:hover .arrow.open, #sidebar > ul > li > a:focus .arrow.open {
         margin-top: 15px;
     }
 
     #sidebar > ul > li > a, #sidebar > ul > li > ul.sub > li {
         width: 100%;
     }
-    #sidebar > ul > li > ul.sub > li > a {
-        background: transparent !important ;
-    }
-    #sidebar > ul > li > ul.sub > li > a:hover {
-        /*background: #4A8BC2 !important ;*/
-    }
 
+        #sidebar > ul > li > ul.sub > li > a {
+            background: transparent !important;
+        }
+
+           
 
     /* sidebar */
     #sidebar {
         margin: 0px !important;
     }
 
-    /* sidebar collabler */
-    #sidebar .btn-navbar.collapsed .arrow {
-        display: none;
-    }
+        /* sidebar collabler */
+        #sidebar .btn-navbar.collapsed .arrow {
+            display: none;
+        }
 
-    #sidebar .btn-navbar .arrow {
-        position: absolute;
-        right: 35px;
-        width: 0;
-        height: 0;
-        top:48px;
-        border-bottom: 15px solid #282e36;
-        border-left: 15px solid transparent;
-        border-right: 15px solid transparent;
-    }
+        #sidebar .btn-navbar .arrow {
+            position: absolute;
+            right: 35px;
+            width: 0;
+            height: 0;
+            top: 48px;
+            border-bottom: 15px solid #282e36;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+        }
 
 
     /*---------*/
@@ -111,13 +108,13 @@
         display: block;
     }
 
-    .inbox-wrapper .inbox-left , .inbox-wrapper .inbox-right{
-        width: 100% ;
+    .inbox-wrapper .inbox-left, .inbox-wrapper .inbox-right {
+        width: 100%;
     }
 
     /* full calendar fix */
     .fc-header-right {
-        left:25px;
+        left: 25px;
         position: absolute;
     }
 
@@ -197,13 +194,13 @@
     }
 
     .fc-header {
-        margin-bottom:0px !important;
+        margin-bottom: 0px !important;
     }
 
     /*--*/
 
     /*.chart-position {*/
-        /*margin-top: 0px;*/
+    /*margin-top: 0px;*/
     /*}*/
 
     .timeline-desk .album a {
@@ -218,21 +215,18 @@
     .mail-option .btn {
         margin-bottom: 0;
     }
-
-
-
 }
 
 
 @media (max-width: 740px) {
-    #task_notificatoin_bar,#mail_notificatoin_bar,#alert_notificatoin_bar{
+    #task_notificatoin_bar, #mail_notificatoin_bar, #alert_notificatoin_bar {
         display: none;
     }
 }
 
 @media (max-width: 480px) {
 
-    .notification-row,.task_notificatoin_bar, .search-row,.knob-charts, .dont-show , .inbox-head .sr-input, .inbox-head .sr-btn{
+    .notification-row, .task_notificatoin_bar, .search-row, .knob-charts, .dont-show, .inbox-head .sr-input, .inbox-head .sr-btn {
         display: none;
     }
 
@@ -240,54 +234,8 @@
         display: block;
     }
 
-    .inbox-wrapper .inbox-left , .inbox-wrapper .inbox-right{
-        width: 100% ;
-    }
-
-    #top_menu .nav > li, ul.top-menu > li {
-        float: right;
-    }
-    .hidden-phone {
-        display: none !important;
-    }
-
-    .dataTables_filter {
-        float: left;
-    }
-
-    .dataTables_info {
-        margin-bottom: 10px;
-    }
-
-    .mail-option .btn {
-        margin-bottom: 0;
-    }
-
-    .mail-option .inbox-pagination {
-        margin-top: 10px;
-        float: left;
-    }
-
-    .chart-position {
-       margin-top: 0px;
-     }
-}
-
-@media (max-width:320px) {
-    .login-social-link a {
-        padding: 15px 17px !important;
-    }
-
-    .notification-row, .search, .dont-show, .inbox-head .sr-input, .inbox-head .sr-btn {
-        display: none;
-    }
-
-    .inbox-wrapper aside {
-        display: block ;
-    }
-
-    .inbox-wrapper .inbox-left , .inbox-wrapper .inbox-right{
-        width: 100% ;
+    .inbox-wrapper .inbox-left, .inbox-wrapper .inbox-right {
+        width: 100%;
     }
 
     #top_menu .nav > li, ul.top-menu > li {
@@ -318,9 +266,51 @@
     .chart-position {
         margin-top: 0px;
     }
-
 }
 
+@media (max-width:320px) {
+    .login-social-link a {
+        padding: 15px 17px !important;
+    }
 
+    .notification-row, .search, .dont-show, .inbox-head .sr-input, .inbox-head .sr-btn {
+        display: none;
+    }
 
+    .inbox-wrapper aside {
+        display: block;
+    }
 
+    .inbox-wrapper .inbox-left, .inbox-wrapper .inbox-right {
+        width: 100%;
+    }
+
+    #top_menu .nav > li, ul.top-menu > li {
+        float: right;
+    }
+
+    .hidden-phone {
+        display: none !important;
+    }
+
+    .dataTables_filter {
+        float: left;
+    }
+
+    .dataTables_info {
+        margin-bottom: 10px;
+    }
+
+    .mail-option .btn {
+        margin-bottom: 0;
+    }
+
+    .mail-option .inbox-pagination {
+        margin-top: 10px;
+        float: left;
+    }
+
+    .chart-position {
+        margin-top: 0px;
+    }
+}

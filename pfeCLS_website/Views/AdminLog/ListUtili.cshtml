@@ -1,0 +1,74 @@
+﻿@model IEnumerable<pfeCLS_website.Models.Utilisateur>
+
+@{
+    ViewBag.Title = "ListUtili";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="icofont-ui-user"></i>Liste Des Utilisateurs </h3>
+                <ol class="breadcrumb">
+                    <li><i class="icofont-home"></i><a href="@Url.Action("index","AdminLog")">Accueil</a></li>
+                    <li>Utilisateurs</li>
+
+                    <li><i class="icofont-plus"></i>@*<button>*@@Html.ActionLink("Nouveau", "CreateUtili")@*</button>*@</li>
+
+
+                </ol>
+            </div>
+        </div>
+        <!-- Form validations -->
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Liste Des Utilisateurs :
+                    </header>
+                    <div class="panel-body">
+                        <div class="form">
+                            <br />
+                            <table class="table">
+                                <tr>
+                                    <th>
+                                       Nom d'utilisateur 
+                                    </th>
+                                    <th>
+                                       Mot de passe
+                                    </th>
+                                    <th>
+                                        Role
+                                    </th>
+                                    <th></th>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Nom_Uti)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.motPasse)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Role)
+                                    </td>
+                                    <td>
+                                        <i class="icofont-repair"></i>  @Html.ActionLink("Modifier", "EditUtili", new { id = item.id_Uti }) |
+                                        <i class="icofont-spinner"></i>@Html.ActionLink("Details", "DetailsUtili", new { id = item.id_Uti }) |
+                                        <i class="icofont-ui-delete"></i>@Html.ActionLink("Supprimer", "DeleteUtili", new { id = item.id_Uti })
+                                    </td>
+                                </tr>
+                                }
+
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+</section>

@@ -1,0 +1,102 @@
+﻿@model IEnumerable<pfeCLS_website.Models.Offre>
+
+@{
+    /**/
+
+    ViewBag.Title = "Annonces";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+        <main id="main">
+
+            <section id="breadcrumbs" class="breadcrumbs">
+                <div class="container">
+
+                    <ol>
+                        <li><a href="@Url.Action("Index","Home")">Accueil</a></li>
+                        <li><img src="~/Content/Images/Bouton_Nos_offres_vecto.png" /></li>
+                    </ol>
+
+
+                </div>
+            </section><!-- End Breadcrumbs -->
+           
+            <!-- ======= Blog Section ======= -->
+            <section id="blog" class="blog">
+                <div class="container">
+              
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            @foreach (var item in Model)
+                            {
+
+                                @*<div class="col-lg-8 entries">*@
+
+                                <article class="entry">
+
+                                    <div class="entry-img">
+                                    
+                                        <img src="@Url.Content(item.Imag_Off)" width="500" height="300" class="img-responsive" />
+                                        <hr style="color:black;" />
+                                    </div>
+
+                                    <h2 class="entry-title" style="color:#ff3300;">
+                                        @item.Tittre_Off :
+                                    </h2>
+
+
+
+                                    <div class="entry-content">
+                                        <p>
+                                            @item.Descr_Off
+                                        </p>
+
+                                    </div>
+
+                                </article><!-- End  -->
+
+                                @*</div>*@
+
+                            }
+                        </div><!-- End  -->
+
+                        <div class="col-lg-6">
+
+                            <div class="sidebar">
+
+                                <h3 class="sidebar-title">Chercher</h3>
+                                <div class="sidebar-item search-form">
+
+                                    @using (Html.BeginForm("Annonces", "AdminLog", FormMethod.Get))
+                                    {
+                                        @Html.TextBox("searching")<button><i class="icofont-search-2"></i></button>
+                                    }
+                                    <br /><br />
+
+                                </div><!-- End sidebar search formn-->
+
+                                <h3 class="sidebar-title">Categories :</h3>
+                                <div class="sidebar-item categories">
+                                    <ul>
+                                        <li>Toute</li>
+                                        <li>Langues</li>
+                                        <li>Calcul Mental</li>
+                                        <li>Cuisine</li>
+
+                                    </ul>
+
+                                </div><!-- End sidebar categories-->
+
+
+                            </div><!-- End sidebar -->
+
+                        </div><!-- End offre sidebar -->
+
+                    </div>
+
+                    </div>
+</section><!-- End offre Section -->
+
+        </main><!-- End #main -->

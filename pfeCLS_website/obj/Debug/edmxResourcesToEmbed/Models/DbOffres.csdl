@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="webCLSModel5" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Categorie">
+    <Key>
+      <PropertyRef Name="Id_Cat" />
+    </Key>
+    <Property Name="Id_Cat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom_Cat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Offres" Relationship="Self.FK__Offre__Id_Cat__4BAC3F29" FromRole="Categorie" ToRole="Offre" />
+  </EntityType>
+  <EntityType Name="Offre">
+    <Key>
+      <PropertyRef Name="Id_Off" />
+    </Key>
+    <Property Name="Id_Off" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tittre_Off" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Descr_Off" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Imag_Off" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Id_Cat" Type="Int32" />
+    <NavigationProperty Name="Categorie" Relationship="Self.FK__Offre__Id_Cat__4BAC3F29" FromRole="Offre" ToRole="Categorie" />
+  </EntityType>
+  <Association Name="FK__Offre__Id_Cat__4BAC3F29">
+    <End Role="Categorie" Type="Self.Categorie" Multiplicity="0..1" />
+    <End Role="Offre" Type="Self.Offre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorie">
+        <PropertyRef Name="Id_Cat" />
+      </Principal>
+      <Dependent Role="Offre">
+        <PropertyRef Name="Id_Cat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DbOffres" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categories" EntityType="Self.Categorie" />
+    <EntitySet Name="Offres" EntityType="Self.Offre" />
+    <AssociationSet Name="FK__Offre__Id_Cat__4BAC3F29" Association="Self.FK__Offre__Id_Cat__4BAC3F29">
+      <End Role="Categorie" EntitySet="Categories" />
+      <End Role="Offre" EntitySet="Offres" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

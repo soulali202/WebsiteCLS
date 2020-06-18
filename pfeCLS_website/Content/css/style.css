@@ -1,9 +1,4 @@
-/*
-    Theme Name: NiceAdmin
-    Theme URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-    Author: BootstrapMade
-    Author URL: https://bootstrapmade.com
-*/
+
 /* Import fonts */
 
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
@@ -137,47 +132,9 @@ table tr th { color: #688a7e;}
 
 }
 
-.login-img-body{
 
-  background: url('../img/bg-1.jpg') no-repeat center center fixed;
 
-  /*-webkit-background-size: cover;
 
-  -moz-background-size: cover;
-
-  -o-background-size: cover;*/
-
-  background-size: cover;
-
-}
-
-.login-img2-body{
-
-  background: url('../img/bg-1.jpg') no-repeat center center fixed;
-
-  /*-webkit-background-size: cover;
-
-  -moz-background-size: cover;
-
-  -o-background-size: cover;*/
-
-  background-size: cover;
-
-}
-
-.login-img3-body{
-
-  background: url('../img/bg-1.jpg') no-repeat center center fixed;
-
-  /*-webkit-background-size: cover;
-
-  -moz-background-size: cover;
-
-  -o-background-size: cover;*/
-
-  background-size: cover;
-
-}
 
 
 
@@ -6469,52 +6426,31 @@ ul.inbox-pagination li {
 
 
 
-.page-404{
-
-  position:relative;
-
-  width:350px;
-
-  height:200px;
-
-  margin:100px auto;
-
-  text-align: center;
-
+.page-404 {
+    position: relative;
+    width: 350px;
+    height: 200px;
+    margin: 100px auto;
+    text-align: center;
 }
 
 
 
-.text-404{
-
-  font-size:138px;
-
-  background:#e9e3dd;
-
-  background-image: url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQTdWeWNteABnbzguiXSBxmfc8Z8nh_HHoWoK35QL81x4HnpVmgvQ');
-
-  background-repeat: no-repeat;
-
-  background-size: 200% 200%;
-
-  background-position: 100% 100%;
-
-  -webkit-animation: square 3s linear infinite;
-
-  -ms-animation: square 3s linear infinite;
-
-  animation: square 3s linear infinite;
-
-  -webkit-background-clip: text;
-
-  color:transparent;
-
-  text-align:center;
-
-  line-height:200px;
-
-  position:relative;
-
+.text-404 {
+    font-size: 138px;
+    background: #e9e3dd;
+    background-image: url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQTdWeWNteABnbzguiXSBxmfc8Z8nh_HHoWoK35QL81x4HnpVmgvQ');
+    background-repeat: no-repeat;
+    background-size: 200% 200%;
+    background-position: 100% 100%;
+    -webkit-animation: square 3s linear infinite;
+ 
+    animation: square 3s linear infinite;
+    
+    color: transparent;
+    text-align: center;
+    line-height: 200px;
+    position: relative;
 }
 
 

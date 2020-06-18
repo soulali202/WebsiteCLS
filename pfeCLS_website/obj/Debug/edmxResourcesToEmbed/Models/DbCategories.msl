@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="webCLSModel4StoreContainer" CdmEntityContainer="DbCategories">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="webCLSModel4.Categorie">
+        <MappingFragment StoreEntitySet="Categorie">
+          <ScalarProperty Name="Id_Cat" ColumnName="Id_Cat" />
+          <ScalarProperty Name="Nom_Cat" ColumnName="Nom_Cat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

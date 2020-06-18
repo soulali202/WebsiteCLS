@@ -1,0 +1,83 @@
+﻿@model pfeCLS_website.Models.Offre
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="icofont-ui-delete"></i>SUPPRIMER OFFRE</h3>
+                <ol class="breadcrumb">
+                    <li><i class="icofont-home"></i><a href="@Url.Action("index","AdminLog")">Accueil</a></li>
+                    <li>Offre</li>
+
+                </ol>
+            </div>
+        </div>
+        <!-- Form validations -->
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Voullez-vous vraiment supprime cette offre ?
+                    </header>
+                    <div class="panel-body">
+                        <div class="form">
+                            <hr />
+                            <dl class="dl-horizontal">
+                                <dt>
+                                     Titre :
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Tittre_Off)
+                                </dd>
+
+                                <dt>
+                                    Description :
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Descr_Off)
+                                </dd>
+
+                                <dt>
+                                    Image :
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Imag_Off)
+                                </dd>
+
+                                <dt>
+                                    Categorie :
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Categorie.Nom_Cat)
+                                </dd>
+
+                            </dl>
+
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-actions no-color">
+                                    <input type="submit" value="Supprimer" class="btn btn-default" /> |
+                                    <i class="icofont-reply"></i>@Html.ActionLink("retournez à la page précédente", "ListOffr")
+
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </section>
+
+                <br /><br /><br /><br />
+            </div>
+        </div>
+    </section>
+</section>

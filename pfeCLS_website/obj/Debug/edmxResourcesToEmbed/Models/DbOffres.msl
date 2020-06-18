@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="webCLSModel5StoreContainer" CdmEntityContainer="DbOffres">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="webCLSModel5.Categorie">
+        <MappingFragment StoreEntitySet="Categorie">
+          <ScalarProperty Name="Id_Cat" ColumnName="Id_Cat" />
+          <ScalarProperty Name="Nom_Cat" ColumnName="Nom_Cat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Offres">
+      <EntityTypeMapping TypeName="webCLSModel5.Offre">
+        <MappingFragment StoreEntitySet="Offre">
+          <ScalarProperty Name="Id_Off" ColumnName="Id_Off" />
+          <ScalarProperty Name="Tittre_Off" ColumnName="Tittre_Off" />
+          <ScalarProperty Name="Descr_Off" ColumnName="Descr_Off" />
+          <ScalarProperty Name="Imag_Off" ColumnName="Imag_Off" />
+          <ScalarProperty Name="Id_Cat" ColumnName="Id_Cat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

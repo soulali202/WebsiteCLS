@@ -1,0 +1,87 @@
+﻿@model IEnumerable<pfeCLS_website.Models.Offre>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="icofont-gift"></i>LISTE DES OFFRES </h3>
+                <ol class="breadcrumb">
+                    <li><i class="icofont-home"></i><a href="@Url.Action("index","AdminLog")">Accueil</a></li>
+                    <li>Categories</li>
+
+                    <li><i class="icofont-plus"></i>@*<button>*@@Html.ActionLink("Nouveau", "CreateOffr")@*</button>*@</li>
+
+
+                </ol>
+            </div>
+        </div>
+        <!-- Form validations -->
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Liste Des Offres :
+                    </header>
+                    <div class="panel-body">
+                        <div class="form">
+                            <table class="table">
+                                <tr>
+                                    <th>
+                                        Id
+                                    </th>
+                                    <th>
+                                        Titre
+                                    </th>
+                                    <th>
+                                        Description
+                                    </th>
+                                    <th>
+                                        Image
+                                    </th>
+                                    <th>
+                                        Categorie
+                                    </th>
+                                    <th></th>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Id_Off)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Tittre_Off)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Descr_Off)
+                                    </td>
+                                    <td>
+                                       <img src="@Url.Content(item.Imag_Off)" width="250" height="250"/>
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Categorie.Nom_Cat)
+                                    </td>
+                                    <td>
+                                        <button style="border-radius:20%;"><i class="icofont-repair"></i>@Html.ActionLink("Modifier", "EditOffr", new { id = item.Id_Off }) </button><br /><br />
+                                       <button style="border-radius:20%;"><i class="icofont-spinner"></i>@Html.ActionLink("Details", "DetailsOffr", new { id = item.Id_Off }) </button><br /><br />
+                                        <button style="border-radius:20%;"><i class="icofont-ui-delete"></i>@Html.ActionLink("Supprimer", "DeleteOffr", new { id = item.Id_Off })</button><br /><br />
+                                    </td>
+                                </tr>
+                                }
+
+
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+</section>
+

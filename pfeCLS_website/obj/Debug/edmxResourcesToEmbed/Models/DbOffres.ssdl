@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="webCLSModel5.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Categorie">
+    <Key>
+      <PropertyRef Name="Id_Cat" />
+    </Key>
+    <Property Name="Id_Cat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom_Cat" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Offre">
+    <Key>
+      <PropertyRef Name="Id_Off" />
+    </Key>
+    <Property Name="Id_Off" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tittre_Off" Type="varchar" MaxLength="100" />
+    <Property Name="Descr_Off" Type="varchar" MaxLength="500" />
+    <Property Name="Imag_Off" Type="varchar(max)" />
+    <Property Name="Id_Cat" Type="int" />
+  </EntityType>
+  <Association Name="FK__Offre__Id_Cat__4BAC3F29">
+    <End Role="Categorie" Type="Self.Categorie" Multiplicity="0..1" />
+    <End Role="Offre" Type="Self.Offre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorie">
+        <PropertyRef Name="Id_Cat" />
+      </Principal>
+      <Dependent Role="Offre">
+        <PropertyRef Name="Id_Cat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="webCLSModel5StoreContainer">
+    <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Offre" EntityType="Self.Offre" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Offre__Id_Cat__4BAC3F29" Association="Self.FK__Offre__Id_Cat__4BAC3F29">
+      <End Role="Categorie" EntitySet="Categorie" />
+      <End Role="Offre" EntitySet="Offre" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

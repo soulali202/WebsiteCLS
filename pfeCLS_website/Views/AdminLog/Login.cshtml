@@ -46,7 +46,7 @@
                         </div>
 
                     </div>
-                    @Html.ValidationMessageFor(model => model.Nom_Uti, "**", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.Nom_Uti, "(*Champ Obligatoire)", new { @class = "text-danger",@style= "Color:#F56E1D;font-size:15px;float:right;" })
                     <div class="input-div pass">
                         <div class="i">
                             <i class="fas fa-lock"></i>
@@ -58,7 +58,7 @@
                         </div>
 
                     </div>
-                    @Html.ValidationMessageFor(model => model.motPasse, "**", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.motPasse, "(*Champ Obligatoire)", new { @class = "text-danger", @style = "Color:#F56E1D;font-size:15px;float:right;padding-bottom:5%;" })
 
 
                     <div class="form-group">

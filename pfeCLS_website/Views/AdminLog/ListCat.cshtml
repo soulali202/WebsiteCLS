@@ -1,0 +1,69 @@
+﻿@model IEnumerable<pfeCLS_website.Models.Categorie>
+
+@{
+    ViewBag.Title = "ListCat";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="icofont-dice-multiple"></i>Liste Des Categories </h3>
+                <ol class="breadcrumb">
+                    <li><i class="icofont-home"></i><a href="@Url.Action("index","AdminLog")">Accueil</a></li>
+                    <li>Categories</li>
+
+                    <li><i class="icofont-plus"></i>@*<button>*@@Html.ActionLink("Nouveau", "CreateCat")@*</button>*@</li>
+
+
+                </ol>
+            </div>
+        </div>
+        <!-- Form validations -->
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Liste Des Categories :
+                    </header>
+                    <div class="panel-body">
+                        <div class="form">
+                            <br />
+                            <table class="table">
+                                <tr>
+                                    <th>
+                                        Id 
+                                    </th>
+                                    <th>
+                                        Nom 
+                                    </th>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Id_Cat)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Nom_Cat)
+                                    </td>
+                                    <td>
+                                        <i class="icofont-repair"></i> @Html.ActionLink("Modifier", "EditCat", new { id = item.Id_Cat }) |
+                                        <i class="icofont-spinner"></i>@Html.ActionLink("Details", "DetailsCat", new { id = item.Id_Cat }) |
+                                        <i class="icofont-ui-delete"></i>@Html.ActionLink("Supprimer", "DeleteCat", new { id = item.Id_Cat })
+                                    </td>
+                                </tr>
+                                }
+
+
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+</section>
+

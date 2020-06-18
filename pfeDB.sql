@@ -39,7 +39,20 @@ create table Utilisateur
 	motPasse varchar(10),
 	Role varchar(10)
   )
- 
+ go
+ create table Categorie
+  (
+     Id_Cat int primary key identity(1,1),
+	 Nom_Cat varchar(50)
+  )
+ go
+ create table Offre
+  (
+    Id_Off int primary key identity(1,1),
+	Tittre_Off varchar(100),
+	Descr_Off varchar(max),
+	Id_Cat int foreign key references Categorie(Id_Cat)
+  )
 
  select*from Inscription
   select*from Contact

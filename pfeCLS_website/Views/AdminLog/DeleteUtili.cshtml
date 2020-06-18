@@ -1,0 +1,74 @@
+﻿@model pfeCLS_website.Models.Utilisateur
+
+@{
+    ViewBag.Title = "DeleteUtili";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="icofont-ui-delete"></i>SUPPRIMER UTILISATEUR</h3>
+                <ol class="breadcrumb">
+                    <li><i class="icofont-home"></i><a href="@Url.Action("DeleteUtili","AdminLog")">Accueil</a></li>
+                    <li>Utilisateur</li>
+
+                </ol>
+            </div>
+        </div>
+        <!-- Form validations -->
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Voullez-vous vraiment supprime ce utilisateur ?
+                    </header>
+                    <div class="panel-body">
+                        <div class="form">
+                            <hr />
+                            <dl class="dl-horizontal">
+                                <dt>
+                                     Nom d'utilisateur :
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Nom_Uti)
+                                </dd>
+
+                                <dt>
+                                    Mot de passe :
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.motPasse)
+                                </dd>
+
+                                <dt>
+                                    Role :
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Role)
+                                </dd>
+
+                            </dl>
+
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                            <div class="form-actions no-color">
+                                <input type="submit" value="Supprimer" class="btn btn-default" /> |
+                                <i class="icofont-reply"></i>@Html.ActionLink("retournez à la page précédente", "ListUtili")
+                            </div>
+                            }
+                        </div>
+                    </div>
+                </section>
+
+                <br /><br /><br /><br />
+            </div>
+        </div>
+    </section>
+</section>
+
