@@ -11,7 +11,8 @@ namespace pfeCLS_website.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Categorie
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,6 +22,7 @@ namespace pfeCLS_website.Models
         }
     
         public int Id_Cat { get; set; }
+        [Required(ErrorMessage = "Saisir le nom de categorie.")]
         public string Nom_Cat { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
