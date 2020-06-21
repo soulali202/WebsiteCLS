@@ -153,6 +153,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AdminLogController.cs" />
     <Compile Include="Controllers\InscriptionsController.cs" />
+    <Compile Include="Extensions\NotificationExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1149,7 +1150,6 @@
     <Content Include="Views\AdminLog\DetailsUtili.cshtml" />
     <Content Include="Views\AdminLog\EditUtili.cshtml" />
     <Content Include="Views\AdminLog\ListUtili.cshtml" />
-    <Content Include="Views\AdminLog\Error.cshtml" />
     <Content Include="Views\AdminLog\CreateCat.cshtml" />
     <Content Include="Views\AdminLog\DeleteCat.cshtml" />
     <Content Include="Views\AdminLog\DetailsCat.cshtml" />
@@ -1161,6 +1161,7 @@
     <Content Include="Views\AdminLog\EditOffr.cshtml" />
     <Content Include="Views\AdminLog\ListOffr.cshtml" />
     <Content Include="Views\AdminLog\Annonces.cshtml" />
+    <Content Include="Views\Shared\_Notifications.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

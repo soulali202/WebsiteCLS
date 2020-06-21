@@ -1,4 +1,5 @@
 ﻿using Microsoft.Ajax.Utilities;
+using pfeCLS_website.Extensions;
 using pfeCLS_website.Models;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,7 @@ namespace pfeCLS_website.Controllers
 
         public ActionResult Annonces(string searching)
         {
+            this.AddNotification("Choisi la categorie que vous voullez et coupier sur la zone de recherche", NotificationType.INFO);
             //ViewBag.categorie_id = new SelectList(dbO.Categories, "Id_Cat", "Nom_Cat");
             return View(dbO.Offres.Where(O => O.Categorie.Nom_Cat.Contains(searching) || searching == null).ToList());
 
@@ -36,7 +38,7 @@ namespace pfeCLS_website.Controllers
         //[HttpPost]
         //public ActionResult Annonces(string categorie_id,string searching)
         //{
-          
+
         //    ViewBag.categorie_id = new SelectList(dbO.Categories, "Id_Cat", "Nom_Cat",categorie_id);
         //    //if (!string.IsNullOrWhiteSpace(categorie_id))
         //    //{
@@ -46,32 +48,32 @@ namespace pfeCLS_website.Controllers
         //    //return View(dbO.Offres.Where(O =>O.Id_Cat.ToString() ==categorie_id).ToList());
         //    return View(dbO.Offres.Where(Ca => Ca.Categorie.Nom_Cat.Contains(searching) || searching == null).ToList());
         //}
-       
-        public ActionResult Error()
-        {
-            return View();
-        }
+
+    
         // GET: IndexLog
         [Authorize]
         public ActionResult Index()
         {
+
+            this.AddNotification("SALUT", NotificationType.INFO);
             return View();
         }
      
-  
-       
-        public ActionResult Login()
+  public ActionResult Login()
         {
             return View();
         }
+       
+    
+  
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(Utilisateur model, string returnUrl)
         {
+
+            DbUtilisateurs db = new DbUtilisateurs();
             try
             {
-                DbUtilisateurs db = new DbUtilisateurs();
-
                 var dataItem = db.Utilisateurs.Where(x => x.Nom_Uti == model.Nom_Uti && x.motPasse == model.motPasse).First();
                 if (dataItem != null)
                 {
@@ -82,22 +84,26 @@ namespace pfeCLS_website.Controllers
                     }
                     else
                     {
+                        this.AddNotification("LOGIN REUSSITE", NotificationType.SUCCESS);
                         return RedirectToAction("Index");
 
 
                     }
                 }
-                else
-                {
-                    ModelState.AddModelError("", "Nom d'utilisateur ou mot de passe est invalide !");
-                    return View("Error");
-                }
             }
             catch (Exception)
             {
-                //ViewBag.Error = "Verifier vos information";
-                return View("Error");
+                this.AddNotification("VERIFIER VOS INFORMATIONS !", NotificationType.ERROR);
+                this.AddNotification("LOGIN ECHOUE !", NotificationType.WARNING);
+
+                return View("Login");
             }
+            return View();
+
+
+
+
+
 
 
         }
@@ -129,7 +135,7 @@ namespace pfeCLS_website.Controllers
         {
             return View();
         }
-     
+
         // POST: Utilisateurs/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -141,9 +147,12 @@ namespace pfeCLS_website.Controllers
             {
                 dbU.Utilisateurs.Add(utilisateur);
                 dbU.SaveChanges();
+                this.AddNotification("AJOUT EFFECTUER", NotificationType.SUCCESS);
+                this.AddNotification("Enregistrer avec succes", NotificationType.INFO);
                 return RedirectToAction("ListUtili");
             }
-
+            this.AddNotification("VERIFIER VOS INFORMATIONS !", NotificationType.ERROR);
+            this.AddNotification("AJOUT NON EFFECTUER !", NotificationType.WARNING);
             return View(utilisateur);
         }
         [Authorize]
@@ -161,7 +170,7 @@ namespace pfeCLS_website.Controllers
             }
             return View(utilisateur);
         }
-   
+
         // POST: Utilisateurs/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -173,8 +182,11 @@ namespace pfeCLS_website.Controllers
             {
                 dbU.Entry(utilisateur).State = EntityState.Modified;
                 dbU.SaveChanges();
+                this.AddNotification("MODIFICATION EFFECTUER", NotificationType.SUCCESS);
+                this.AddNotification("Enregistrer avec succes", NotificationType.INFO);
                 return RedirectToAction("ListUtili");
             }
+            this.AddNotification("MODIFICATION NON EFFECTUER !", NotificationType.WARNING);
             return View(utilisateur);
         }
         [Authorize]
@@ -192,7 +204,7 @@ namespace pfeCLS_website.Controllers
             }
             return View(utilisateur);
         }
-     
+
         // POST: Utilisateurs/Delete/5
         [HttpPost, ActionName("DeleteUtili")]
         [ValidateAntiForgeryToken]
@@ -201,6 +213,8 @@ namespace pfeCLS_website.Controllers
             Utilisateur utilisateur = dbU.Utilisateurs.Find(id);
             dbU.Utilisateurs.Remove(utilisateur);
             dbU.SaveChanges();
+            this.AddNotification("SUPPRESSION EFFECTUER", NotificationType.SUCCESS);
+
             return RedirectToAction("ListUtili");
         }
         //-----------------------------------------------------------------------------------------------------------------
@@ -286,6 +300,7 @@ namespace pfeCLS_website.Controllers
             Contact contact = db.Contacts.Find(id);
             db.Contacts.Remove(contact);
             db.SaveChanges();
+            this.AddNotification("SUPPRESSION EFFECTUER", NotificationType.SUCCESS);
             return RedirectToAction("ListContact");
         }
 
@@ -350,9 +365,12 @@ namespace pfeCLS_website.Controllers
             {
                 dbI.Entry(inscription).State = EntityState.Modified;
                 dbI.SaveChanges();
+                this.AddNotification("MODIFICATION EFFECTUER", NotificationType.SUCCESS);
+                this.AddNotification("Enregistrer avec succes", NotificationType.INFO);
                 return RedirectToAction("ListInscription");
             }
             ViewBag.ID_branche = new SelectList(dbI.Branches, "ID_branche", "Nom_branche", inscription.ID_branche);
+            this.AddNotification("MODIFICATION NON EFFECTUER !", NotificationType.WARNING);
             return View(inscription);
         }
         [Authorize]
@@ -379,6 +397,7 @@ namespace pfeCLS_website.Controllers
             Inscription inscription = dbI.Inscriptions.Find(id);
             dbI.Inscriptions.Remove(inscription);
             dbI.SaveChanges();
+            this.AddNotification("SUPPRESSION EFFECTUER", NotificationType.SUCCESS);
             return RedirectToAction("ListInscription");
         }
         [Authorize]
@@ -403,7 +422,8 @@ namespace pfeCLS_website.Controllers
                 dbI.Inscriptions.Add(inscription);
 
                 dbI.SaveChanges();
-
+                this.AddNotification("INSCRIPTION EFFECTUER", NotificationType.SUCCESS);
+                this.AddNotification("Enregistrer avec succes", NotificationType.INFO);
                 return RedirectToAction("CreateInscription");
 
             }
@@ -411,7 +431,8 @@ namespace pfeCLS_website.Controllers
             ViewBag.ID_branche = new SelectList(dbI.Branches, "ID_branche", "Nom_branche", inscription.ID_branche);
 
 
-
+            this.AddNotification("VERIFIER VOS INFORMATIONS !", NotificationType.ERROR);
+            this.AddNotification("AJOUT NON EFFECTUER !", NotificationType.WARNING);
             return View(inscription)
 
 
@@ -424,10 +445,10 @@ namespace pfeCLS_website.Controllers
         // GET: Branches
         public ActionResult ListBranches(string searching)
         {
-           
-            return View(dbR.Branches.Where(b=>b.Nom_branche.Contains(searching)||searching==null).ToList());
+
+            return View(dbR.Branches.Where(b => b.Nom_branche.Contains(searching) || searching == null).ToList());
         }
- 
+
 
         [Authorize]
         // GET: Branches/Details/5
@@ -448,10 +469,10 @@ namespace pfeCLS_website.Controllers
         // GET: Branches/Create
         public ActionResult CreateBr()
         {
-          
+
             return View();
         }
-    
+
         // POST: Branches/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -463,9 +484,13 @@ namespace pfeCLS_website.Controllers
             {
                 dbR.Branches.Add(branche);
                 dbR.SaveChanges();
+                this.AddNotification("AJOUT EFFECTUER", NotificationType.SUCCESS);
+                this.AddNotification("Enregistrer avec succes", NotificationType.INFO);
                 return RedirectToAction("ListBranches");
             }
-           
+
+            this.AddNotification("VERIFIER VOS INFORMATIONS !", NotificationType.ERROR);
+            this.AddNotification("AJOUT NON EFFECTUER !", NotificationType.WARNING);
             return View(branche);
         }
         [Authorize]
@@ -495,9 +520,11 @@ namespace pfeCLS_website.Controllers
             {
                 dbR.Entry(branche).State = EntityState.Modified;
                 dbR.SaveChanges();
+                this.AddNotification("MODIFICATION EFFECTUER", NotificationType.SUCCESS);
+                this.AddNotification("Enregistrer avec succes", NotificationType.INFO);
                 return RedirectToAction("ListBranches");
             }
-        
+            this.AddNotification("MODIFICATION NON EFFECTUER !", NotificationType.WARNING);
             return View(branche);
         }
         [Authorize]
@@ -515,7 +542,7 @@ namespace pfeCLS_website.Controllers
             }
             return View(branche);
         }
-        
+
         // POST: Branches/Delete/5
         [HttpPost, ActionName("DeleteBr")]
         [ValidateAntiForgeryToken]
@@ -524,10 +551,11 @@ namespace pfeCLS_website.Controllers
             Branche branche = dbR.Branches.Find(id);
             dbR.Branches.Remove(branche);
             dbR.SaveChanges();
+            this.AddNotification("SUPPRESSION EFFECTUER", NotificationType.SUCCESS);
             return RedirectToAction("ListBranches");
         }
         //------------------------------------------------Categories----------------------------------------------------------------------------------------------
-       [Authorize]
+        [Authorize]
         // GET: Categories
         public ActionResult ListCat()
         {
@@ -566,9 +594,12 @@ namespace pfeCLS_website.Controllers
             {
                 dbCg.Categories.Add(categorie);
                 dbCg.SaveChanges();
+                this.AddNotification("AJOUT EFFECTUER", NotificationType.SUCCESS);
+                this.AddNotification("Enregistrer avec succes", NotificationType.INFO);
                 return RedirectToAction("ListCat");
             }
-
+            this.AddNotification("VERIFIER VOS INFORMATIONS !", NotificationType.ERROR);
+            this.AddNotification("AJOUT NON EFFECTUER !", NotificationType.WARNING);
             return View(categorie);
         }
         [Authorize]
@@ -598,8 +629,11 @@ namespace pfeCLS_website.Controllers
             {
                 dbCg.Entry(categorie).State = EntityState.Modified;
                 dbCg.SaveChanges();
+                this.AddNotification("MODIFICATION EFFECTUER", NotificationType.SUCCESS);
+                this.AddNotification("Enregistrer avec succes", NotificationType.INFO);
                 return RedirectToAction("ListCat");
             }
+            this.AddNotification("MODIFICATION NON EFFECTUER !", NotificationType.WARNING);
             return View(categorie);
         }
         [Authorize]
@@ -626,6 +660,7 @@ namespace pfeCLS_website.Controllers
             Categorie categorie = dbCg.Categories.Find(id);
             dbCg.Categories.Remove(categorie);
             dbCg.SaveChanges();
+            this.AddNotification("SUPPRESSION EFFECTUER", NotificationType.SUCCESS);
             return RedirectToAction("ListCat");
         }
         //----------------------------------------------Offres-------------------------------------------------------------------------------------------------------
@@ -664,31 +699,34 @@ namespace pfeCLS_website.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateOffr([Bind(Include = "Id_Off,Tittre_Off,Descr_Off,Imag_Off,Id_Cat")]HttpPostedFileBase ImageFile,Offre offre)
+        public ActionResult CreateOffr([Bind(Include = "Id_Off,Tittre_Off,Descr_Off,Imag_Off,Id_Cat")]HttpPostedFileBase ImageFile, Offre offre)
         {
-          
+
             if (ModelState.IsValid)
             {
                 string fileName = Path.GetFileName(ImageFile.FileName);
-                string _fileName = DateTime.Now.ToString("yymmssfff") +fileName;
+                string _fileName = DateTime.Now.ToString("yymmssfff") + fileName;
                 string extension = Path.GetExtension(ImageFile.FileName);
-              
+
                 string path = Path.Combine(Server.MapPath("~/Image/"), _fileName);
                 offre.Imag_Off = "~/Image/" + _fileName;
-                if(extension.ToLower()==".jpg" || extension.ToLower() == ".jpeg" || extension.ToLower() == ".png")
+                if (extension.ToLower() == ".jpg" || extension.ToLower() == ".jpeg" || extension.ToLower() == ".png")
                 {
                     dbO.Offres.Add(offre);
                     ImageFile.SaveAs(path);
                     dbO.SaveChanges();
+                    this.AddNotification("AJOUT EFFECTUER", NotificationType.SUCCESS);
+                    this.AddNotification("Enregistrer avec succes", NotificationType.INFO);
                     return RedirectToAction("ListOffr");
                 }
-             
+
             }
 
             ViewBag.Id_Cat = new SelectList(dbO.Categories, "Id_Cat", "Nom_Cat", offre.Id_Cat);
+            this.AddNotification("VERIFIER VOS INFORMATIONS !", NotificationType.ERROR);
+            this.AddNotification("AJOUT NON EFFECTUER !", NotificationType.WARNING);
             return View(offre);
-            //var result = "Successfully Added";
-            //return Json(result, JsonRequestBehavior.AllowGet);
+
         }
         [Authorize]
         // GET: Offres/Edit/5
@@ -718,6 +756,8 @@ namespace pfeCLS_website.Controllers
             {
                 dbO.Entry(offre).State = EntityState.Modified;
                 dbO.SaveChanges();
+                this.AddNotification("MODIFICATION EFFECTUER", NotificationType.SUCCESS);
+                this.AddNotification("Enregistrer avec succes", NotificationType.INFO);
                 return RedirectToAction("ListOffr");
             }
             ViewBag.Id_Cat = new SelectList(dbO.Categories, "Id_Cat", "Nom_Cat", offre.Id_Cat);

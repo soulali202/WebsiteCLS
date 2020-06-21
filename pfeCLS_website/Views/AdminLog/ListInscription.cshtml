@@ -10,14 +10,15 @@
         <section class="wrapper">
             <div class="row">
                 <div class="col-lg-12">
+                    @Html.Partial("_Notifications")
                     <h3 class="page-header"><i class="icofont-group-students"></i>Liste Des Inscriptions </h3>
                     <ol class="breadcrumb">
                         <li><i class="icofont-home"></i><a href="@Url.Action("index","AdminLog")">Accueil</a></li>
                         <li>Inscription</li>
-                        
+
                         <li><i class="icofont-plus"></i>@*<button>*@@Html.ActionLink("Nouveau", "CreateInscription")@*</button>*@</li>
-                       
-                   
+
+
                     </ol>
                 </div>
             </div>

@@ -18,6 +18,7 @@
     <link href=@Url.Content("/Content/assets/vendor/boxicons/css/boxicons.min.css") rel="stylesheet" />
 </head>
 <body>
+    @Html.Partial("_Notifications")
     <img class="wave" src="~/Content/Images/Login/wave.png">
     <div class="container">
         <div class="img">
@@ -46,7 +47,7 @@
                         </div>
 
                     </div>
-                    @Html.ValidationMessageFor(model => model.Nom_Uti, "(*Champ Obligatoire)", new { @class = "text-danger",@style= "Color:#F56E1D;font-size:15px;float:right;" })
+                    @Html.ValidationMessageFor(model => model.Nom_Uti, "(*Champ Obligatoire)", new { @class = "text-danger", @style = "Color:#F56E1D;font-size:15px;float:right;" })
                     <div class="input-div pass">
                         <div class="i">
                             <i class="fas fa-lock"></i>
